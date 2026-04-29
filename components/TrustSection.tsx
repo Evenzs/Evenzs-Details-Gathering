@@ -1,0 +1,72 @@
+'use client';
+
+import { motion } from 'framer-motion';
+import { Calendar, Heart, Briefcase, Building2, Package, Users } from 'lucide-react';
+
+const categories = [
+  { label: 'Event Planners', icon: Calendar },
+  { label: 'Wedding Coordinators', icon: Heart },
+  { label: 'Corporate Organizers', icon: Briefcase },
+  { label: 'Venues & Hotels', icon: Building2 },
+  { label: 'Vendors & Suppliers', icon: Package },
+  { label: 'Community Organizers', icon: Users },
+  { label: 'Event Planners', icon: Calendar },
+  { label: 'Wedding Coordinators', icon: Heart },
+  { label: 'Corporate Organizers', icon: Briefcase },
+  { label: 'Venues & Hotels', icon: Building2 },
+  { label: 'Vendors & Suppliers', icon: Package },
+  { label: 'Community Organizers', icon: Users },
+];
+
+export default function TrustSection() {
+  return (
+    <section className="relative overflow-hidden py-16">
+      {/* Edge fades */}
+      <div className="absolute inset-0 pointer-events-none z-10">
+        <div className="absolute inset-0 bg-gradient-to-r from-[#070C1B] via-transparent to-[#070C1B]" />
+      </div>
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+
+      {/* Header */}
+      <div className="relative z-20 max-w-7xl mx-auto px-6 lg:px-10 pb-10 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <p className="text-[11px] uppercase tracking-[0.22em] text-[#C9A84C] font-semibold mb-3">
+            Speaking with event professionals across the USA
+          </p>
+          <p className="text-[#64748B] text-sm max-w-md mx-auto leading-relaxed">
+            From intimate gatherings to large-scale productions — every voice shapes what we build.
+          </p>
+        </motion.div>
+      </div>
+
+      {/* Scrolling track */}
+      <div className="relative overflow-hidden">
+        <motion.div
+          animate={{ x: ['0%', '-50%'] }}
+          transition={{ duration: 32, repeat: Infinity, ease: 'linear' }}
+          className="flex gap-4 w-max"
+        >
+          {categories.map((cat, i) => (
+            <div
+              key={i}
+              className="flex items-center gap-3 card-dark rounded-2xl px-6 py-3.5 shrink-0 whitespace-nowrap card-dark-hover transition-all duration-300 group"
+            >
+              <div className="w-8 h-8 rounded-lg bg-[#C9A84C]/[0.1] border border-[#C9A84C]/[0.15] flex items-center justify-center shrink-0">
+                <cat.icon size={14} className="text-[#C9A84C]" strokeWidth={1.75} />
+              </div>
+              <span className="text-[13px] text-[#94A3B8] font-medium group-hover:text-white transition-colors duration-300">
+                {cat.label}
+              </span>
+            </div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+}
