@@ -17,16 +17,14 @@ export default function TermsPage() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#070C1B]/80 backdrop-blur-2xl border-b border-white/[0.06]">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
           <Link href="/" className="flex items-center flex-shrink-0">
-            <div className="bg-white rounded-xl px-3 py-1.5 shadow-lg shadow-black/10">
-              <Image
-                src="/Evenzs-Logo-Final.png"
-                alt="Evenzs"
-                width={200}
-                height={56}
-                className="h-11 w-auto object-contain"
-                priority
-              />
-            </div>
+            <Image
+              src="/Logo_(1).png"
+              alt="Evenzs"
+              width={200}
+              height={56}
+              className="h-11 w-auto object-contain"
+              priority
+            />
           </Link>
           <Link
             href="/"

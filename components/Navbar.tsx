@@ -47,16 +47,14 @@ export default function Navbar() {
               className="flex items-center flex-shrink-0"
               aria-label="Evenzs home"
             >
-              <div className="bg-white rounded-xl px-3 py-1.5 shadow-lg shadow-black/10">
-                <Image
-                  src="/Evenzs-Logo-Final.png"
-                  alt="Evenzs — From Toast To Takeoff"
-                  width={200}
-                  height={56}
-                  className="h-11 w-auto object-contain"
-                  priority
-                />
-              </div>
+              <Image
+                src="/Logo_(1).png"
+                alt="Evenzs — From Toast To Takeoff"
+                width={200}
+                height={56}
+                className="h-11 w-auto object-contain"
+                priority
+              />
             </button>
 
             <div className="hidden lg:flex items-center gap-10">

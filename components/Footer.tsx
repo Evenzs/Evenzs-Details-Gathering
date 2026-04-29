@@ -12,9 +12,9 @@ export default function Footer() {
 
           {/* Logo */}
           <div>
-            <div className="bg-white rounded-xl px-3 py-2 inline-block mb-5 shadow-lg shadow-black/20">
+            <div className="mb-5">
               <Image
-                src="/Evenzs-Logo-Final.png"
+                src="/Logo_(1).png"
                 alt="Evenzs — From Toast To Takeoff"
                 width={180}
                 height={50}
