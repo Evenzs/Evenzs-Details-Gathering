@@ -129,7 +129,7 @@ ${payload.company_role || "\u2014"}</div>
         },
         body: JSON.stringify({
           from: "Evenzs Feedback <onboarding@resend.dev>",
-          to: ["siva.durbhakula@evenzs.com"],
+          to: ["contact@evenzs.com"],
           subject: "New Evenzs Industry Feedback Submission",
           html: htmlBody,
         }),
