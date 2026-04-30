@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Calendar, Heart, Briefcase, Building2, Package, Users } from 'lucide-react';
+import { Calendar, Heart, Briefcase, Building2, Package, Users, Music, Camera, Utensils, Star, Globe, Mic } from 'lucide-react';
 
 const categories = [
   { label: 'Event Planners', icon: Calendar },
@@ -10,12 +10,25 @@ const categories = [
   { label: 'Venues & Hotels', icon: Building2 },
   { label: 'Vendors & Suppliers', icon: Package },
   { label: 'Community Organizers', icon: Users },
+  { label: 'Entertainment & AV', icon: Music },
+  { label: 'Photography & Film', icon: Camera },
+  { label: 'Catering & F&B', icon: Utensils },
+  { label: 'Brand Experiences', icon: Star },
+  { label: 'Destination Events', icon: Globe },
+  { label: 'Speakers & Hosts', icon: Mic },
+  // duplicate set for seamless loop
   { label: 'Event Planners', icon: Calendar },
   { label: 'Wedding Coordinators', icon: Heart },
   { label: 'Corporate Organizers', icon: Briefcase },
   { label: 'Venues & Hotels', icon: Building2 },
   { label: 'Vendors & Suppliers', icon: Package },
   { label: 'Community Organizers', icon: Users },
+  { label: 'Entertainment & AV', icon: Music },
+  { label: 'Photography & Film', icon: Camera },
+  { label: 'Catering & F&B', icon: Utensils },
+  { label: 'Brand Experiences', icon: Star },
+  { label: 'Destination Events', icon: Globe },
+  { label: 'Speakers & Hosts', icon: Mic },
 ];
 
 export default function TrustSection() {
@@ -37,7 +50,7 @@ export default function TrustSection() {
           transition={{ duration: 0.5 }}
         >
           <p className="text-[11px] uppercase tracking-[0.22em] text-[#C9A84C] font-semibold mb-3">
-            Speaking with event professionals across the USA
+            Built for every corner of the industry
           </p>
           <p className="text-[#64748B] text-sm max-w-md mx-auto leading-relaxed">
             From intimate gatherings to large-scale productions — every voice shapes what we build.
@@ -49,7 +62,7 @@ export default function TrustSection() {
       <div className="relative overflow-hidden">
         <motion.div
           animate={{ x: ['0%', '-50%'] }}
-          transition={{ duration: 32, repeat: Infinity, ease: 'linear' }}
+          transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
           className="flex gap-4 w-max"
         >
           {categories.map((cat, i) => (

@@ -1,13 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles } from 'lucide-react';
-
-const stats = [
-  { value: '3 min', label: 'Average survey time' },
-  { value: 'USA', label: 'Nationwide reach' },
-  { value: '100%', label: 'Research-driven' },
-];
+import { ArrowRight, Sparkles, Linkedin } from 'lucide-react';
 
 export default function AboutSection() {
   const scrollToFeedback = () => {
@@ -38,11 +32,9 @@ export default function AboutSection() {
             </p>
 
             <h2 className="text-[2rem] sm:text-[2.8rem] lg:text-[3.2rem] font-bold text-white leading-[1.08] tracking-[-0.03em] mb-6">
-              Built on listening,
+              The best products
               <br />
-              <span className="text-[#64748B] font-normal italic font-[var(--font-playfair)]">
-                not assumptions.
-              </span>
+              start with the right questions.
             </h2>
 
             <div className="space-y-4 mb-8">
@@ -70,7 +62,7 @@ export default function AboutSection() {
             </motion.button>
           </motion.div>
 
-          {/* Right — stats + visual block */}
+          {/* Right — founder card */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -79,30 +71,31 @@ export default function AboutSection() {
           >
             <div className="card-dark rounded-3xl p-10 border-glow-gold">
               <p className="text-[11px] uppercase tracking-[0.22em] text-[#C9A84C] font-semibold mb-6">
-                By The Numbers
+                From the Founder
               </p>
-              <div className="space-y-8">
-                {stats.map((stat, i) => (
-                  <div key={stat.label} className="flex items-center gap-6">
-                    <span className="text-3xl sm:text-4xl font-bold text-white tracking-[-0.03em] min-w-[100px]">
-                      {stat.value}
-                    </span>
-                    <div className="flex-1">
-                      <div className="h-px bg-gradient-to-r from-[#C9A84C]/20 to-transparent mb-2" />
-                      <span className="text-[#64748B] text-sm">{stat.label}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
 
-              <div className="mt-8 pt-6 border-t border-white/[0.06]">
-                <p className="text-[#64748B] text-sm leading-relaxed italic font-[var(--font-playfair)]">
-                  &ldquo;We&apos;re not building what we think you need. We&apos;re building what
-                  you tell us you can&apos;t live without.&rdquo;
-                </p>
-                <p className="text-[#C9A84C] text-xs font-semibold mt-3 tracking-wide">
-                  — Evenzs Founding Team
-                </p>
+              <p className="text-[#94A3B8] text-base leading-[1.85] mb-6">
+                &ldquo;We&apos;re not building what we think you need. We&apos;re building what
+                you tell us you can&apos;t live without. Every conversation we have shapes
+                what Evenzs becomes — and we&apos;re just getting started.&rdquo;
+              </p>
+
+              <div className="flex items-center justify-between pt-6 border-t border-white/[0.06]">
+                <div>
+                  <p className="text-white text-sm font-semibold">Siva Durbhakula</p>
+                  <p className="text-[#4A5568] text-xs mt-0.5">Founder, Evenzs</p>
+                </div>
+                <a
+                  href="https://www.linkedin.com/in/sivadurbhakula/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-xs text-[#4A5568] hover:text-[#C9A84C] transition-colors duration-200 group"
+                >
+                  <div className="w-7 h-7 rounded-lg bg-white/[0.04] border border-white/[0.08] flex items-center justify-center group-hover:border-[#C9A84C]/30 transition-colors duration-200">
+                    <Linkedin size={13} strokeWidth={1.8} />
+                  </div>
+                  Connect
+                </a>
               </div>
             </div>
           </motion.div>

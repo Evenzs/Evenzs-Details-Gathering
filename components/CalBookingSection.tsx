@@ -28,15 +28,15 @@ export default function CalBookingSection() {
             Talk To Us
           </p>
           <h2 className="text-[2rem] sm:text-[2.8rem] font-bold text-white leading-[1.08] tracking-[-0.03em] mb-4">
-            Prefer a real conversation?
+            Want to go deeper?
             <br />
             <span className="text-[#64748B] font-normal italic font-[var(--font-playfair)]">
-              Schedule a call.
+              Let&apos;s talk it through.
             </span>
           </h2>
           <p className="text-[#64748B] text-base leading-relaxed max-w-md mx-auto mb-8">
-            We&apos;d love to hear directly from you. Pick a time and let&apos;s talk about the
-            real challenges you face running events.
+            Pick 30 minutes and walk us through how you actually run events — the tools,
+            the workarounds, the things that shouldn&apos;t be this hard.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-8 mb-8">

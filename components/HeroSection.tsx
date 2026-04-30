@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Sparkles, Phone } from 'lucide-react';
 
 export default function HeroSection() {
   const scrollTo = (id: string) => {
@@ -49,11 +49,9 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.25 }}
-          className="text-[#94A3B8] text-base sm:text-lg leading-[1.8] max-w-2xl mx-auto mb-10"
+          className="text-[#94A3B8] text-base sm:text-lg leading-[1.8] max-w-xl mx-auto mb-10"
         >
-          Evenzs is being built around a simple belief: events should feel seamless for
-          everyone — including the people running them. We&apos;re starting by listening to
-          planners, venues, vendors, and organizers across the USA.
+          Built for the people who run events — not just attend them.
         </motion.p>
 
         <motion.div
@@ -73,8 +71,9 @@ export default function HeroSection() {
             </button>
             <button
               onClick={() => scrollTo('#schedule')}
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/[0.12] text-[#CBD5E1] hover:text-white hover:border-white/[0.25] hover:bg-white/[0.04] font-medium text-sm tracking-wide transition-all duration-300"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full border border-white/[0.12] text-[#CBD5E1] hover:text-white hover:border-white/[0.25] hover:bg-white/[0.04] font-medium text-sm tracking-wide transition-all duration-300"
             >
+              <Phone size={14} strokeWidth={1.8} />
               Book a Call
             </button>
           </div>

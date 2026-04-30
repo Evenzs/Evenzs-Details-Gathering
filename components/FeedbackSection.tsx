@@ -20,7 +20,6 @@ interface FormData {
   event_type: string;
   stress_points: string;
   current_tools: string;
-  breakdown_points: string;
   top_headache: string;
   open_to_conversation: boolean | null;
   name: string;
@@ -33,7 +32,6 @@ const emptyForm: FormData = {
   event_type: '',
   stress_points: '',
   current_tools: '',
-  breakdown_points: '',
   top_headache: '',
   open_to_conversation: null,
   name: '',
@@ -42,10 +40,13 @@ const emptyForm: FormData = {
   company_role: '',
 };
 
+// Steps: 1=EventType, 2=StressPoints, 3=CurrentTools, 4=TopHeadache, 5=ContactInfo
 const STEPS = [
-  { label: 'Your Role', num: 1 },
-  { label: 'Pain Points', num: 2 },
-  { label: 'About You', num: 3 },
+  { num: 1, label: 'Your Role' },
+  { num: 2, label: 'Stress & Work' },
+  { num: 3, label: 'Your Tools' },
+  { num: 4, label: 'Top Headache' },
+  { num: 5, label: 'About You' },
 ];
 
 const slideVariants = {
@@ -63,19 +64,13 @@ export default function FeedbackSection() {
   const [error, setError] = useState('');
 
   const set = (field: keyof FormData) => (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => setForm((f) => ({ ...f, [field]: e.target.value }));
 
   const goTo = (next: number) => {
     setDir(next > step ? 1 : -1);
     setStep(next);
     setError('');
-  };
-
-  const canAdvance = () => {
-    if (step === 1) return !!form.event_type;
-    if (step === 2) return true;
-    return true;
   };
 
   const handleNext = () => {
@@ -124,6 +119,8 @@ export default function FeedbackSection() {
     'w-full bg-white/[0.04] border border-white/[0.08] rounded-xl px-4 py-3 text-white text-sm placeholder:text-[#4A5568] focus:border-[#C9A84C]/50 focus:bg-white/[0.06] focus:shadow-[0_0_0_3px_rgba(201,168,76,0.08)] transition-all duration-200 outline-none resize-none leading-relaxed';
 
   const labelCls = 'block text-xs font-semibold text-[#94A3B8] mb-2 tracking-wide uppercase';
+
+  const totalSteps = STEPS.length;
 
   return (
     <section id="listening" className="relative py-16 sm:py-20">
@@ -186,38 +183,30 @@ export default function FeedbackSection() {
           ) : (
             <>
               {/* Step indicator */}
-              <div className="flex items-center px-8 pt-7 pb-5 gap-3">
+              <div className="flex items-center px-8 pt-7 pb-2 gap-2">
                 {STEPS.map((s, i) => (
-                  <div key={s.num} className="flex items-center gap-3 flex-1">
-                    <div className="flex items-center gap-2 shrink-0">
-                      <div
-                        className={`w-6 h-6 rounded-full flex items-center justify-center text-[11px] font-bold transition-all duration-300 ${
-                          step > s.num
-                            ? 'bg-[#C9A84C] text-[#070C1B]'
-                            : step === s.num
-                            ? 'bg-[#C9A84C]/[0.15] border border-[#C9A84C]/50 text-[#C9A84C]'
-                            : 'bg-white/[0.04] border border-white/[0.08] text-[#4A5568]'
-                        }`}
-                      >
-                        {step > s.num ? (
-                          <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
-                            <path d="M1 4L3.5 6.5L9 1" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-                          </svg>
-                        ) : s.num}
-                      </div>
-                      <span className={`text-xs font-medium transition-colors duration-300 hidden sm:block ${
-                        step === s.num ? 'text-white' : 'text-[#4A5568]'
-                      }`}>
-                        {s.label}
-                      </span>
+                  <div key={s.num} className="flex items-center gap-2 flex-1">
+                    <div
+                      className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 transition-all duration-300 ${
+                        step > s.num
+                          ? 'bg-[#C9A84C] text-[#070C1B]'
+                          : step === s.num
+                          ? 'bg-[#C9A84C]/[0.15] border border-[#C9A84C]/50 text-[#C9A84C]'
+                          : 'bg-white/[0.04] border border-white/[0.08] text-[#4A5568]'
+                      }`}
+                    >
+                      {step > s.num ? (
+                        <svg width="8" height="7" viewBox="0 0 8 7" fill="none">
+                          <path d="M1 3.5L3 5.5L7 1" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      ) : s.num}
                     </div>
                     {i < STEPS.length - 1 && (
-                      <div className="flex-1 h-px bg-gradient-to-r from-white/[0.06] to-white/[0.06] relative overflow-hidden">
+                      <div className="flex-1 h-px bg-white/[0.06] relative overflow-hidden">
                         <motion.div
-                          className="absolute inset-y-0 left-0 bg-gradient-to-r from-[#C9A84C]/40 to-[#C9A84C]/20"
-                          initial={{ width: '0%' }}
+                          className="absolute inset-y-0 left-0 bg-[#C9A84C]/30"
                           animate={{ width: step > s.num ? '100%' : '0%' }}
-                          transition={{ duration: 0.4, ease: 'easeInOut' }}
+                          transition={{ duration: 0.35, ease: 'easeInOut' }}
                         />
                       </div>
                     )}
@@ -225,19 +214,19 @@ export default function FeedbackSection() {
                 ))}
               </div>
 
-              {/* Progress bar */}
-              <div className="px-8 mb-6">
-                <div className="h-px bg-white/[0.06] relative overflow-hidden rounded-full">
-                  <motion.div
-                    className="absolute inset-y-0 left-0 bg-gradient-to-r from-[#C9A84C] to-[#D4AF37]"
-                    animate={{ width: `${((step - 1) / (STEPS.length - 1)) * 100}%` }}
-                    transition={{ duration: 0.4, ease: 'easeInOut' }}
-                  />
-                </div>
+              {/* Step label + progress */}
+              <div className="flex items-center justify-between px-8 pt-2 pb-5">
+                <span className="text-[11px] font-semibold text-[#C9A84C] tracking-wide uppercase">
+                  {STEPS[step - 1].label}
+                </span>
+                <span className="text-[11px] text-[#4A5568]">
+                  {step} / {totalSteps}
+                </span>
               </div>
 
               <div className="px-8 pb-8">
                 <AnimatePresence mode="wait" custom={dir}>
+                  {/* Step 1 — Event Type */}
                   {step === 1 && (
                     <motion.div
                       key="step1"
@@ -270,6 +259,7 @@ export default function FeedbackSection() {
                     </motion.div>
                   )}
 
+                  {/* Step 2 — Stress & Manual Work */}
                   {step === 2 && (
                     <motion.div
                       key="step2"
@@ -279,36 +269,72 @@ export default function FeedbackSection() {
                       animate="center"
                       exit="exit"
                       transition={{ duration: 0.22, ease: 'easeOut' }}
-                      className="space-y-5"
                     >
-                      <div>
-                        <p className="text-white font-semibold text-base mb-1">Tell us about your biggest challenges.</p>
-                        <p className="text-[#4A5568] text-xs mb-5">Be as specific as you like — every detail helps.</p>
-                      </div>
-                      <div>
-                        <label className={labelCls}>What creates the most stress or manual work?</label>
-                        <textarea rows={3} value={form.stress_points} onChange={set('stress_points')}
-                          placeholder="The pain points that consume the most time and energy..."
-                          className={textareaCls} />
-                      </div>
-                      <div>
-                        <label className={labelCls}>Tools &amp; processes you use today</label>
-                        <textarea rows={2} value={form.current_tools} onChange={set('current_tools')}
-                          placeholder="e.g. Google Sheets, WhatsApp, Trello..."
-                          className={textareaCls} />
-                      </div>
-                      <div>
-                        <label className={labelCls}>If you could eliminate one headache, what would it be?</label>
-                        <textarea rows={2} value={form.top_headache} onChange={set('top_headache')}
-                          placeholder="Your single biggest pain point..."
-                          className={textareaCls} />
-                      </div>
+                      <p className="text-white font-semibold text-base mb-1">What creates the most stress or manual work?</p>
+                      <p className="text-[#4A5568] text-xs mb-5">Think about what takes up the most time and energy when planning or running events.</p>
+                      <textarea
+                        rows={5}
+                        value={form.stress_points}
+                        onChange={set('stress_points')}
+                        placeholder="e.g. Chasing vendor confirmations the day before, reconciling guest lists across multiple spreadsheets..."
+                        className={textareaCls}
+                        autoFocus
+                      />
                     </motion.div>
                   )}
 
+                  {/* Step 3 — Current Tools */}
                   {step === 3 && (
                     <motion.div
                       key="step3"
+                      custom={dir}
+                      variants={slideVariants}
+                      initial="enter"
+                      animate="center"
+                      exit="exit"
+                      transition={{ duration: 0.22, ease: 'easeOut' }}
+                    >
+                      <p className="text-white font-semibold text-base mb-1">What tools and processes do you rely on today?</p>
+                      <p className="text-[#4A5568] text-xs mb-5">Apps, spreadsheets, group chats — anything you actually use.</p>
+                      <textarea
+                        rows={5}
+                        value={form.current_tools}
+                        onChange={set('current_tools')}
+                        placeholder="e.g. Google Sheets for budgets, WhatsApp for vendor coordination, Trello for task tracking..."
+                        className={textareaCls}
+                        autoFocus
+                      />
+                    </motion.div>
+                  )}
+
+                  {/* Step 4 — Top Headache */}
+                  {step === 4 && (
+                    <motion.div
+                      key="step4"
+                      custom={dir}
+                      variants={slideVariants}
+                      initial="enter"
+                      animate="center"
+                      exit="exit"
+                      transition={{ duration: 0.22, ease: 'easeOut' }}
+                    >
+                      <p className="text-white font-semibold text-base mb-1">If you could eliminate one headache, what would it be?</p>
+                      <p className="text-[#4A5568] text-xs mb-5">Your single biggest pain point — the thing that keeps you up the night before an event.</p>
+                      <textarea
+                        rows={5}
+                        value={form.top_headache}
+                        onChange={set('top_headache')}
+                        placeholder="e.g. Never knowing if all vendors are confirmed until the last minute..."
+                        className={textareaCls}
+                        autoFocus
+                      />
+                    </motion.div>
+                  )}
+
+                  {/* Step 5 — Contact Info */}
+                  {step === 5 && (
+                    <motion.div
+                      key="step5"
                       custom={dir}
                       variants={slideVariants}
                       initial="enter"
@@ -322,31 +348,31 @@ export default function FeedbackSection() {
                       <div className="space-y-4">
                         <div className="grid sm:grid-cols-2 gap-4">
                           <div>
-                            <label className={labelCls}>Name <span className="text-[#C9A84C]">*</span></label>
+                            <label className={labelCls}>Name <span className="text-[#C9A84C] normal-case font-normal">*</span></label>
                             <input type="text" value={form.name} onChange={set('name')} required
                               placeholder="Your full name" className={inputCls} />
                           </div>
                           <div>
-                            <label className={labelCls}>Email <span className="text-[#C9A84C]">*</span></label>
+                            <label className={labelCls}>Email <span className="text-[#C9A84C] normal-case font-normal">*</span></label>
                             <input type="email" value={form.email} onChange={set('email')} required
                               placeholder="your@email.com" className={inputCls} />
                           </div>
                         </div>
                         <div className="grid sm:grid-cols-2 gap-4">
                           <div>
-                            <label className={labelCls}>Phone <span className="text-[#4A5568] normal-case font-normal">(optional)</span></label>
+                            <label className={labelCls}>Phone</label>
                             <input type="tel" value={form.phone_number} onChange={set('phone_number')}
                               placeholder="(555) 123-4567" className={inputCls} />
                           </div>
                           <div>
-                            <label className={labelCls}>Company / Role <span className="text-[#4A5568] normal-case font-normal">(optional)</span></label>
+                            <label className={labelCls}>Company / Role</label>
                             <input type="text" value={form.company_role} onChange={set('company_role')}
                               placeholder="Event Planner at XYZ" className={inputCls} />
                           </div>
                         </div>
 
                         <div>
-                          <label className={labelCls}>Open to a short follow-up conversation?</label>
+                          <label className={labelCls}>Open to a short follow-up call?</label>
                           <div className="flex gap-2">
                             {[
                               { label: 'Yes, happy to talk', value: true },
@@ -398,12 +424,11 @@ export default function FeedbackSection() {
                     </button>
                   )}
 
-                  {step < 3 ? (
+                  {step < totalSteps ? (
                     <button
                       type="button"
                       onClick={handleNext}
-                      disabled={!canAdvance()}
-                      className="group inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-[#C9A84C] to-[#D4AF37] hover:from-[#D4AF37] hover:to-[#E8C84A] disabled:opacity-30 disabled:cursor-not-allowed text-[#070C1B] font-semibold text-sm transition-all duration-300 shadow-lg shadow-[#C9A84C]/15 hover:-translate-y-0.5"
+                      className="group inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-[#C9A84C] to-[#D4AF37] hover:from-[#D4AF37] hover:to-[#E8C84A] text-[#070C1B] font-semibold text-sm transition-all duration-300 shadow-lg shadow-[#C9A84C]/15 hover:-translate-y-0.5"
                     >
                       Continue
                       <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform duration-200" strokeWidth={2.5} />

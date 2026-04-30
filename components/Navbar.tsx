@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-react';
 import Image from 'next/image';
 
 const navLinks = [
@@ -69,7 +69,14 @@ export default function Navbar() {
               ))}
             </div>
 
-            <div className="hidden lg:block">
+            <div className="hidden lg:flex items-center gap-3">
+              <button
+                onClick={() => handleNav('#schedule')}
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-[13px] font-medium text-[#94A3B8] border border-white/[0.10] hover:text-white hover:border-white/[0.22] hover:bg-white/[0.04] transition-all duration-300"
+              >
+                <Phone size={12} strokeWidth={1.8} />
+                Book a Call
+              </button>
               <button
                 onClick={() => handleNav('#feedback')}
                 className="px-6 py-2.5 rounded-full text-[13px] font-semibold text-[#070C1B] bg-gradient-to-r from-[#C9A84C] to-[#D4AF37] hover:from-[#D4AF37] hover:to-[#E8C84A] transition-all duration-300 shadow-lg shadow-[#C9A84C]/20"
@@ -107,12 +114,21 @@ export default function Navbar() {
                 {link.label}
               </button>
             ))}
-            <button
-              onClick={() => handleNav('#feedback')}
-              className="mt-2 w-full py-3 rounded-full text-sm font-semibold text-[#070C1B] bg-gradient-to-r from-[#C9A84C] to-[#D4AF37] transition-all duration-300"
-            >
-              Share Your Experience
-            </button>
+            <div className="flex flex-col gap-3 mt-2">
+              <button
+                onClick={() => handleNav('#schedule')}
+                className="w-full py-3 rounded-full text-sm font-medium text-[#94A3B8] border border-white/[0.10] hover:text-white hover:border-white/[0.22] transition-all duration-300 inline-flex items-center justify-center gap-2"
+              >
+                <Phone size={13} strokeWidth={1.8} />
+                Book a Call
+              </button>
+              <button
+                onClick={() => handleNav('#feedback')}
+                className="w-full py-3 rounded-full text-sm font-semibold text-[#070C1B] bg-gradient-to-r from-[#C9A84C] to-[#D4AF37] transition-all duration-300"
+              >
+                Share Your Experience
+              </button>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
