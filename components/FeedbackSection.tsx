@@ -94,7 +94,7 @@ export default function FeedbackSection() {
   const labelCls = 'block text-xs font-semibold text-[#94A3B8] mb-2.5 tracking-wide uppercase';
 
   return (
-    <section id="listening" className="relative py-28 sm:py-40">
+    <section id="listening" className="relative py-20 sm:py-28">
       {/* Background */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#C9A84C]/[0.03] rounded-full blur-[180px]" />

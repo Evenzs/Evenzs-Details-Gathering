@@ -14,7 +14,7 @@ const challenges = [
 
 export default function ChallengesSection() {
   return (
-    <section id="challenges" className="relative py-28 sm:py-40">
+    <section id="challenges" className="relative py-20 sm:py-28">
       {/* Background accent */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#C9A84C]/[0.02] rounded-full blur-[150px]" />
