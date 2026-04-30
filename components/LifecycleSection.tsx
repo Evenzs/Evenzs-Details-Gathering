@@ -112,16 +112,6 @@ export default function LifecycleSection() {
           ))}
         </div>
 
-        {/* Subtle footnote */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="text-[#364156] text-[11px] mt-5 text-center"
-        >
-          Built for wedding planners, event coordinators, and party professionals
-        </motion.p>
       </div>
     </section>
   );
