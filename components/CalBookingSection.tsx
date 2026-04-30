@@ -1,5 +1,6 @@
 'use client';
 
+import Script from 'next/script';
 import { motion } from 'framer-motion';
 import { Calendar, Clock, MessageSquare } from 'lucide-react';
 
@@ -12,6 +13,26 @@ export default function CalBookingSection() {
 
   return (
     <section id="schedule" className="relative py-20 sm:py-28">
+      {/* Cal.com embed script — loaded once after page is interactive */}
+      <Script
+        src="https://app.cal.com/embed/embed.js"
+        strategy="afterInteractive"
+        onLoad={() => {
+          const w = window as any;
+          if (!w.Cal) return;
+          w.Cal('init', { origin: 'https://cal.com' });
+          w.Cal('inline', {
+            elementOrSelector: '#cal-booking-embed',
+            calLink: 'siva-durbhakula-kmuett',
+            config: { layout: 'month_view', theme: 'dark' },
+          });
+          w.Cal('ui', {
+            styles: { branding: { brandColor: '#C9A84C' } },
+            hideEventTypeDetails: false,
+          });
+        }}
+      />
+
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-[#C9A84C]/[0.025] rounded-full blur-[200px]" />
       </div>
@@ -58,13 +79,9 @@ export default function CalBookingSection() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="rounded-3xl overflow-hidden border border-white/[0.08]"
         >
-          <iframe
-            src="https://cal.com/siva-durbhakula-kmuett?embed=true&theme=dark&layout=month_view&hideEventTypeDetails=false"
-            width="100%"
-            height="700"
-            frameBorder="0"
-            title="Schedule a call with Evenzs"
-            style={{ display: 'block', background: 'transparent' }}
+          <div
+            id="cal-booking-embed"
+            style={{ width: '100%', minHeight: '700px' }}
           />
         </motion.div>
       </div>
