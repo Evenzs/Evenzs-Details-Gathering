@@ -238,7 +238,7 @@ export default function FeedbackSection() {
                       transition={{ duration: 0.22, ease: 'easeOut' }}
                     >
                       <p className="text-white font-semibold text-base mb-1">What kind of events do you run?</p>
-                      <p className="text-[#4A5568] text-xs mb-5">Select the option that best describes your work.</p>
+                      <p className="text-[#4A5568] text-xs mb-5">Select one to continue — required.</p>
                       <div className="grid grid-cols-2 gap-2">
                         {eventTypes.map((t) => (
                           <button

@@ -54,7 +54,7 @@ export default function CalBookingSection() {
             href="https://cal.com/siva-durbhakula-kmuett"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#C9A84C] text-black font-semibold text-sm tracking-wide hover:bg-[#D4B55A] active:scale-[0.98] transition-all duration-200 shadow-[0_0_40px_rgba(201,168,76,0.25)]"
+            className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-[#C9A84C] to-[#D4AF37] hover:from-[#D4AF37] hover:to-[#E8C84A] text-[#070C1B] font-semibold text-sm tracking-wide active:scale-[0.98] transition-all duration-300 shadow-xl shadow-[#C9A84C]/20 hover:-translate-y-0.5"
           >
             <Calendar size={16} strokeWidth={2} />
             Book a Call

@@ -77,7 +77,7 @@ export default function HeroSection() {
               Book a Call
             </button>
           </div>
-          <p className="text-[#4A5568] text-xs tracking-wide">
+          <p className="text-[#64748B] text-xs tracking-wide">
             Takes 2–3 minutes. Your feedback helps shape what we build next.
           </p>
         </motion.div>

@@ -69,12 +69,12 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="border-t border-white/[0.06] mt-8 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-[#334155]">
+          <p className="text-xs text-[#4A5568]">
             &copy; {new Date().getFullYear()} Evenzs.com — All rights reserved.
           </p>
           <div className="flex items-center gap-8">
-            <Link href="/privacy" className="text-xs text-[#334155] hover:text-[#64748B] transition-colors duration-200">Privacy</Link>
-            <Link href="/terms" className="text-xs text-[#334155] hover:text-[#64748B] transition-colors duration-200">Terms</Link>
+            <Link href="/privacy" className="text-xs text-[#64748B] hover:text-[#94A3B8] transition-colors duration-200">Privacy</Link>
+            <Link href="/terms" className="text-xs text-[#64748B] hover:text-[#94A3B8] transition-colors duration-200">Terms</Link>
           </div>
         </div>
       </div>

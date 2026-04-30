@@ -37,7 +37,7 @@ export default function ChallengesSection() {
             <h2 className="text-[2rem] sm:text-[2.8rem] lg:text-[3.5rem] font-bold text-white leading-[1.08] tracking-[-0.03em]">
               Event chaos is real.
               <br />
-              <span className="text-[#64748B] font-light text-[1.6rem] sm:text-[2.2rem] lg:text-[2.6rem] tracking-[-0.02em]">
+              <span className="text-[#94A3B8] font-normal text-[1.6rem] sm:text-[2.2rem] lg:text-[2.6rem] tracking-[-0.02em]">
                 Here&apos;s what we keep hearing.
               </span>
             </h2>

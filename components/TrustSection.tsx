@@ -52,6 +52,9 @@ export default function TrustSection() {
           <p className="text-[11px] uppercase tracking-[0.22em] text-[#C9A84C] font-semibold mb-3">
             Built for every corner of the industry
           </p>
+          <h2 className="text-[1.6rem] sm:text-[2rem] font-bold text-white leading-[1.1] tracking-[-0.025em] mb-3">
+            Who we&apos;re building for.
+          </h2>
           <p className="text-[#64748B] text-sm max-w-md mx-auto leading-relaxed">
             From intimate gatherings to large-scale productions — every voice shapes what we build.
           </p>
