@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Play } from 'lucide-react';
+import { ArrowRight, Play, Mail, ClipboardList, CheckCircle2, Calendar, RefreshCw, Bell, FileText, Link2, Armchair } from 'lucide-react';
 import WalkthroughModal from './WalkthroughModal';
 
 const useCases = [
@@ -11,45 +11,35 @@ const useCases = [
     headline: 'From scattered chats to one confirmed list',
     description: 'All vendor confirmations, contracts, and contacts in a single timeline view.',
     flow: [
-      { icon: '📧', text: 'Email / WhatsApp' },
-      { icon: '📋', text: 'Evenzs Hub' },
-      { icon: '✅', text: 'Confirmed & On-track' },
+      { icon: Mail, text: 'Email / WhatsApp' },
+      { icon: ClipboardList, text: 'Evenzs Hub' },
+      { icon: CheckCircle2, text: 'Confirmed & On-track' },
     ],
-    accent: '#C9A84C',
   },
   {
     label: 'Day-of Timeline',
     headline: 'Live runsheet every stakeholder can see',
     description: 'Shift one item and every downstream cue updates automatically.',
     flow: [
-      { icon: '🗓️', text: 'Runsheet Built' },
-      { icon: '🔄', text: 'Auto-cascades' },
-      { icon: '📲', text: 'Team Notified' },
+      { icon: Calendar, text: 'Runsheet Built' },
+      { icon: RefreshCw, text: 'Auto-cascades' },
+      { icon: Bell, text: 'Team Notified' },
     ],
-    accent: '#4A90D9',
   },
   {
     label: 'Guest Management',
     headline: 'RSVPs, dietary needs, seating — resolved',
     description: 'Dynamic guest list that syncs across your entire event team in real time.',
     flow: [
-      { icon: '📝', text: 'RSVP Collected' },
-      { icon: '🔗', text: 'Synced Live' },
-      { icon: '🪑', text: 'Seating Ready' },
+      { icon: FileText, text: 'RSVP Collected' },
+      { icon: Link2, text: 'Synced Live' },
+      { icon: Armchair, text: 'Seating Ready' },
     ],
-    accent: '#3DAD7F',
   },
 ];
 
 export default function UseCasesSection() {
   const [walkthroughOpen, setWalkthroughOpen] = useState(false);
-
-  const scrollToFeedback = () => {
-    const el = document.querySelector('#feedback');
-    if (!el) return;
-    const top = el.getBoundingClientRect().top + window.scrollY - 88;
-    window.scrollTo({ top, behavior: 'smooth' });
-  };
 
   return (
     <section id="usecases" className="relative py-16 sm:py-20 overflow-hidden">
@@ -113,15 +103,9 @@ export default function UseCasesSection() {
               className="card-dark rounded-2xl p-7 group relative overflow-hidden hover:translate-y-[-2px] transition-transform duration-300"
             >
               {/* Top accent line */}
-              <div
-                className="absolute top-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-400"
-                style={{ background: `linear-gradient(90deg, transparent, ${uc.accent}60, transparent)` }}
-              />
+              <div className="absolute top-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-400 bg-gradient-to-r from-transparent via-[#C9A84C]/60 to-transparent" />
 
-              <span
-                className="inline-block text-[10px] uppercase tracking-[0.2em] font-semibold px-2.5 py-1 rounded-full mb-5"
-                style={{ color: uc.accent, backgroundColor: `${uc.accent}12`, border: `1px solid ${uc.accent}25` }}
-              >
+              <span className="inline-block text-[10px] uppercase tracking-[0.2em] font-semibold px-2.5 py-1 rounded-full mb-5 text-[#C9A84C] bg-[#C9A84C]/[0.07] border border-[#C9A84C]/[0.15]">
                 {uc.label}
               </span>
 
@@ -132,28 +116,23 @@ export default function UseCasesSection() {
                 {uc.description}
               </p>
 
-              {/* Flow diagram */}
+              {/* Flow diagram with proper icons */}
               <div className="flex items-center gap-2">
                 {uc.flow.map((step, si) => (
                   <div key={si} className="flex items-center gap-2 flex-1 min-w-0">
                     <div className="flex flex-col items-center gap-1.5 flex-1 min-w-0">
-                      <div
-                        className="w-full rounded-xl px-2 py-3 flex flex-col items-center gap-1 border transition-all duration-300 group-hover:border-opacity-40"
-                        style={{
-                          backgroundColor: `${uc.accent}08`,
-                          borderColor: `${uc.accent}20`,
-                        }}
-                      >
-                        <span className="text-lg leading-none">{step.icon}</span>
-                        <span className="text-[9px] text-center text-[#64748B] font-medium leading-tight">{step.text}</span>
+                      <div className="w-full rounded-xl px-2 py-3 flex flex-col items-center gap-1.5 border transition-all duration-300 group-hover:border-[#C9A84C]/20 bg-[#C9A84C]/[0.04] border-[#C9A84C]/[0.1]">
+                        <div className="w-7 h-7 rounded-lg bg-[#C9A84C]/[0.1] flex items-center justify-center">
+                          <step.icon size={14} className="text-[#C9A84C]" strokeWidth={1.75} />
+                        </div>
+                        <span className="text-[9px] text-center text-[#94A3B8] font-medium leading-tight">{step.text}</span>
                       </div>
                     </div>
                     {si < uc.flow.length - 1 && (
                       <ArrowRight
                         size={11}
                         strokeWidth={2}
-                        style={{ color: `${uc.accent}50` }}
-                        className="shrink-0"
+                        className="shrink-0 text-[#C9A84C]/50"
                       />
                     )}
                   </div>
@@ -162,29 +141,6 @@ export default function UseCasesSection() {
             </motion.div>
           ))}
         </div>
-
-        {/* Bottom CTA band */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-40px' }}
-          transition={{ duration: 0.55, delay: 0.2 }}
-          className="mt-10 card-dark rounded-2xl px-8 py-7 flex flex-col sm:flex-row items-center justify-between gap-5 border border-[#C9A84C]/[0.08]"
-        >
-          <div>
-            <p className="text-white font-semibold text-base mb-1">Want to see detailed product walkthroughs?</p>
-            <p className="text-[#64748B] text-sm">
-              We&apos;re building demo videos for each use case. Be first to see them.
-            </p>
-          </div>
-          <button
-            onClick={scrollToFeedback}
-            className="group shrink-0 inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#C9A84C] to-[#D4AF37] hover:from-[#D4AF37] hover:to-[#E8C84A] text-[#070C1B] font-semibold text-sm tracking-wide transition-all duration-300 shadow-lg shadow-[#C9A84C]/15 hover:-translate-y-0.5 whitespace-nowrap"
-          >
-            Notify me
-            <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-200" strokeWidth={2.5} />
-          </button>
-        </motion.div>
       </div>
 
       <WalkthroughModal open={walkthroughOpen} onClose={() => setWalkthroughOpen(false)} />

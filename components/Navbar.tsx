@@ -8,7 +8,7 @@ import Image from 'next/image';
 const navLinks = [
   { label: 'Why Evenzs', href: '#why-evenzs' },
   { label: 'Challenges', href: '#challenges' },
-  { label: 'About', href: '#about' },
+  { label: 'How It Works', href: '#usecases' },
 ];
 
 export default function Navbar() {
