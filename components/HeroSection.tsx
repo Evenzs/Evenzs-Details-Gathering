@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Sparkles, Calendar } from 'lucide-react';
 
 export default function HeroSection() {
   const scrollTo = (id: string) => {
@@ -93,10 +93,11 @@ export default function HeroSection() {
             <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform duration-200" strokeWidth={2.5} />
           </button>
           <button
-            onClick={() => scrollTo('#about')}
+            onClick={() => scrollTo('#schedule')}
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/[0.12] text-[#CBD5E1] hover:text-white hover:border-white/[0.25] hover:bg-white/[0.04] font-medium text-sm tracking-wide transition-all duration-300"
           >
-            Learn More
+            <Calendar size={15} strokeWidth={2} />
+            Schedule a Call
           </button>
         </motion.div>
 

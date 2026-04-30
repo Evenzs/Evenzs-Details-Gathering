@@ -3,6 +3,7 @@ import HeroSection from '@/components/HeroSection';
 import TrustSection from '@/components/TrustSection';
 import ChallengesSection from '@/components/ChallengesSection';
 import FeedbackSection from '@/components/FeedbackSection';
+import CalBookingSection from '@/components/CalBookingSection';
 import AboutSection from '@/components/AboutSection';
 import Footer from '@/components/Footer';
 
@@ -14,6 +15,7 @@ export default function Home() {
       <TrustSection />
       <ChallengesSection />
       <FeedbackSection />
+      <CalBookingSection />
       <AboutSection />
       <Footer />
     </main>
