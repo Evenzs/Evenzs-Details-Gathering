@@ -71,7 +71,7 @@ export default function HeroSection() {
             </button>
             <button
               onClick={() => scrollTo('#schedule')}
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full border border-white/[0.12] text-[#CBD5E1] hover:text-white hover:border-white/[0.25] hover:bg-white/[0.04] font-medium text-sm tracking-wide transition-all duration-300"
+              className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-full border border-[#C9A84C]/30 text-[#C9A84C] hover:border-[#C9A84C]/60 hover:bg-[#C9A84C]/[0.06] hover:text-[#D4AF37] font-medium text-sm tracking-wide transition-all duration-300 hover:-translate-y-0.5"
             >
               <Phone size={14} strokeWidth={1.8} />
               Book a Call
