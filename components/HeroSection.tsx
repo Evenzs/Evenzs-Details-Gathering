@@ -1,15 +1,46 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles, Phone } from 'lucide-react';
+import { ArrowRight, Sparkles, Phone, Users } from 'lucide-react';
+import { supabase } from '@/lib/supabase';
 
 export default function HeroSection() {
+  const [email, setEmail] = useState('');
+  const [emailSubmitted, setEmailSubmitted] = useState(false);
+  const [emailSubmitting, setEmailSubmitting] = useState(false);
+  const [responseCount, setResponseCount] = useState<number | null>(null);
+
+  useEffect(() => {
+    supabase
+      .from('feedback_submissions')
+      .select('id', { count: 'exact', head: true })
+      .then(({ count }) => {
+        if (count !== null) setResponseCount(count);
+      });
+  }, []);
+
   const scrollTo = (id: string) => {
     const el = document.querySelector(id);
     if (!el) return;
     const navOffset = 88;
     const top = el.getBoundingClientRect().top + window.scrollY - navOffset;
     window.scrollTo({ top, behavior: 'smooth' });
+  };
+
+  const handleWaitlist = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+    setEmailSubmitting(true);
+    try {
+      await supabase.from('feedback_submissions').insert([{ email, event_type: 'Waitlist' }]);
+    } catch {
+      // fail silently — don't block the user
+    } finally {
+      setEmailSubmitting(false);
+      setEmailSubmitted(true);
+      if (responseCount !== null) setResponseCount(responseCount + 1);
+    }
   };
 
   return (
@@ -35,6 +66,21 @@ export default function HeroSection() {
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto">
+        {/* Social proof counter */}
+        {responseCount !== null && responseCount > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#C9A84C]/20 bg-[#C9A84C]/[0.05] mb-8"
+          >
+            <Users size={12} className="text-[#C9A84C]" strokeWidth={2} />
+            <span className="text-[#C9A84C] text-xs font-semibold">
+              {responseCount} event professionals have shared their experience
+            </span>
+          </motion.div>
+        )}
+
         <motion.h1
           initial={{ opacity: 0, y: 32 }}
           animate={{ opacity: 1, y: 0 }}
@@ -52,36 +98,81 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.25 }}
-          className="text-[#94A3B8] text-base sm:text-lg leading-[1.8] max-w-xl mx-auto mb-10"
+          className="text-[#94A3B8] text-base sm:text-lg leading-[1.8] max-w-xl mx-auto mb-8"
         >
-          Built for the people who run events — not just attend them.
+          Help shape the tool that finally fixes event management — share your workflow
+          and get early access when we launch.
         </motion.p>
 
+        {/* Waitlist email capture */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.6, delay: 0.35 }}
+          className="mb-5"
+        >
+          {emailSubmitted ? (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-[#C9A84C]/30 bg-[#C9A84C]/[0.06] text-[#C9A84C] text-sm font-medium"
+            >
+              <Sparkles size={14} strokeWidth={2} />
+              You&apos;re on the list — we&apos;ll be in touch.
+            </motion.div>
+          ) : (
+            <form
+              onSubmit={handleWaitlist}
+              className="flex flex-col sm:flex-row items-center gap-2.5 max-w-md mx-auto"
+            >
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="your@email.com"
+                required
+                className="w-full sm:flex-1 bg-white/[0.05] border border-white/[0.1] rounded-full px-5 py-3.5 text-white text-sm placeholder:text-[#4A5568] focus:border-[#C9A84C]/40 focus:bg-white/[0.07] focus:outline-none transition-all duration-200"
+              />
+              <button
+                type="submit"
+                disabled={emailSubmitting}
+                className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-r from-[#C9A84C] to-[#D4AF37] hover:from-[#D4AF37] hover:to-[#E8C84A] disabled:opacity-50 text-[#070C1B] font-semibold text-sm tracking-wide transition-all duration-300 shadow-xl shadow-[#C9A84C]/20 hover:-translate-y-0.5 shrink-0"
+              >
+                {emailSubmitting ? 'Joining...' : 'Join Waitlist'}
+                {!emailSubmitting && (
+                  <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-200" strokeWidth={2.5} />
+                )}
+              </button>
+            </form>
+          )}
+        </motion.div>
+
+        {/* Secondary CTAs */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.45 }}
           className="flex flex-col items-center gap-3"
         >
           <div className="flex flex-col sm:flex-row items-center gap-3">
             <button
               onClick={() => scrollTo('#feedback')}
-              className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-[#C9A84C] to-[#D4AF37] hover:from-[#D4AF37] hover:to-[#E8C84A] text-[#070C1B] font-semibold text-sm tracking-wide transition-all duration-300 shadow-xl shadow-[#C9A84C]/20 hover:-translate-y-0.5"
+              className="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full border border-[#C9A84C]/30 text-[#C9A84C] hover:border-[#C9A84C]/60 hover:bg-[#C9A84C]/[0.06] hover:text-[#D4AF37] font-medium text-sm tracking-wide transition-all duration-300 hover:-translate-y-0.5"
             >
-              <Sparkles size={15} strokeWidth={2.5} />
+              <Sparkles size={14} strokeWidth={1.8} />
               Share Your Experience
-              <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform duration-200" strokeWidth={2.5} />
+              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-200" strokeWidth={2} />
             </button>
             <button
               onClick={() => scrollTo('#schedule')}
-              className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-full border border-[#C9A84C]/30 text-[#C9A84C] hover:border-[#C9A84C]/60 hover:bg-[#C9A84C]/[0.06] hover:text-[#D4AF37] font-medium text-sm tracking-wide transition-all duration-300 hover:-translate-y-0.5"
+              className="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full border border-white/[0.08] text-[#64748B] hover:border-white/[0.16] hover:text-[#94A3B8] font-medium text-sm tracking-wide transition-all duration-300 hover:-translate-y-0.5"
             >
               <Phone size={14} strokeWidth={1.8} />
               Book a Call
             </button>
           </div>
-          <p className="text-[#64748B] text-xs tracking-wide">
-            Takes 2–3 minutes. Your feedback helps shape what we build next.
+          <p className="text-[#4A5568] text-xs tracking-wide">
+            Takes 2–3 minutes &middot; Your feedback shapes what we build
           </p>
         </motion.div>
       </div>

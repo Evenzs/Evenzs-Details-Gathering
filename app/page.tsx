@@ -14,9 +14,9 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <TrustSection />
+      <AboutSection />
       <ChallengesSection />
       <UseCasesSection />
-      <AboutSection />
       <FeedbackSection />
       <CalBookingSection />
       <Footer />
