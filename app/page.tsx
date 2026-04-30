@@ -2,6 +2,7 @@ import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import LifecycleSection from '@/components/LifecycleSection';
 import TrustSection from '@/components/TrustSection';
+import ChallengesSection from '@/components/ChallengesSection';
 import UseCasesSection from '@/components/UseCasesSection';
 import FeedbackSection from '@/components/FeedbackSection';
 import CalBookingSection from '@/components/CalBookingSection';
@@ -16,6 +17,7 @@ export default function Home() {
       <LifecycleSection />
       <TrustSection />
       <AboutSection />
+      <ChallengesSection />
       <UseCasesSection />
       <FeedbackSection />
       <CalBookingSection />
