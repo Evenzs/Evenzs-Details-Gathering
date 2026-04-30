@@ -33,33 +33,13 @@ const categories = [
 
 export default function TrustSection() {
   return (
-    <section className="relative overflow-hidden py-16">
+    <section className="relative overflow-hidden py-10">
       {/* Edge fades */}
       <div className="absolute inset-0 pointer-events-none z-10">
         <div className="absolute inset-0 bg-gradient-to-r from-[#070C1B] via-transparent to-[#070C1B]" />
       </div>
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
-
-      {/* Header */}
-      <div className="relative z-20 max-w-7xl mx-auto px-6 lg:px-10 pb-10 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <p className="text-[11px] uppercase tracking-[0.22em] text-[#C9A84C] font-semibold mb-3">
-            Built for every corner of the industry
-          </p>
-          <h2 className="text-[1.6rem] sm:text-[2rem] font-bold text-white leading-[1.1] tracking-[-0.025em] mb-3">
-            Who we&apos;re building for.
-          </h2>
-          <p className="text-[#64748B] text-sm max-w-md mx-auto leading-relaxed">
-            From intimate gatherings to large-scale productions — every voice shapes what we build.
-          </p>
-        </motion.div>
-      </div>
 
       {/* Scrolling track */}
       <div className="relative overflow-hidden">
