@@ -38,7 +38,7 @@ const challenges = [
 
 export default function ChallengesSection() {
   return (
-    <section id="challenges" className="relative py-16 sm:py-20">
+    <section id="challenges" className="relative pt-6 pb-16 sm:pt-8 sm:pb-20">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#C9A84C]/[0.02] rounded-full blur-[150px]" />
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#141E38]/60 rounded-full blur-[120px]" />
