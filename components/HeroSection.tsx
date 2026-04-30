@@ -62,14 +62,22 @@ export default function HeroSection() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="flex flex-col items-center gap-3"
         >
-          <button
-            onClick={() => scrollTo('#feedback')}
-            className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-[#C9A84C] to-[#D4AF37] hover:from-[#D4AF37] hover:to-[#E8C84A] text-[#070C1B] font-semibold text-sm tracking-wide transition-all duration-300 shadow-xl shadow-[#C9A84C]/20 hover:-translate-y-0.5"
-          >
-            <Sparkles size={15} strokeWidth={2.5} />
-            Share Your Experience
-            <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform duration-200" strokeWidth={2.5} />
-          </button>
+          <div className="flex flex-col sm:flex-row items-center gap-3">
+            <button
+              onClick={() => scrollTo('#feedback')}
+              className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-[#C9A84C] to-[#D4AF37] hover:from-[#D4AF37] hover:to-[#E8C84A] text-[#070C1B] font-semibold text-sm tracking-wide transition-all duration-300 shadow-xl shadow-[#C9A84C]/20 hover:-translate-y-0.5"
+            >
+              <Sparkles size={15} strokeWidth={2.5} />
+              Share Your Experience
+              <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform duration-200" strokeWidth={2.5} />
+            </button>
+            <button
+              onClick={() => scrollTo('#schedule')}
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/[0.12] text-[#CBD5E1] hover:text-white hover:border-white/[0.25] hover:bg-white/[0.04] font-medium text-sm tracking-wide transition-all duration-300"
+            >
+              Book a Call
+            </button>
+          </div>
           <p className="text-[#4A5568] text-xs tracking-wide">
             Takes 2–3 minutes. Your feedback helps shape what we build next.
           </p>
