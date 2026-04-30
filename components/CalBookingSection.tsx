@@ -1,35 +1,10 @@
 'use client';
 
-import { useEffect } from 'react';
+import Cal from '@calcom/embed-react';
 import { motion } from 'framer-motion';
 import { Calendar, Clock, MessageSquare } from 'lucide-react';
 
 export default function CalBookingSection() {
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://app.cal.com/embed/embed.js';
-    script.async = true;
-    script.onload = () => {
-      if ((window as any).Cal) {
-        (window as any).Cal('init', 'siva-durbhakula-kmuett', {
-          origin: 'https://cal.com',
-        });
-        (window as any).Cal.ns['siva-durbhakula-kmuett']('inline', {
-          elementOrSelector: '#cal-embed',
-          calLink: 'siva-durbhakula-kmuett',
-          config: {
-            layout: 'month_view',
-            theme: 'dark',
-          },
-        });
-      }
-    };
-    document.body.appendChild(script);
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
-
   const perks = [
     { icon: Clock, label: '30-minute conversation' },
     { icon: MessageSquare, label: 'Share your real workflow' },
@@ -80,18 +55,21 @@ export default function CalBookingSection() {
           </div>
         </motion.div>
 
-        {/* Cal embed container */}
+        {/* Cal embed */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="rounded-3xl overflow-hidden border border-white/[0.08] bg-white/[0.02] backdrop-blur-sm"
-          style={{ minHeight: 600 }}
+          className="rounded-3xl overflow-hidden border border-white/[0.08]"
         >
-          <div
-            id="cal-embed"
+          <Cal
+            calLink="siva-durbhakula-kmuett"
             style={{ width: '100%', height: '100%', minHeight: 600 }}
+            config={{
+              layout: 'month_view',
+              theme: 'dark',
+            }}
           />
         </motion.div>
       </div>
