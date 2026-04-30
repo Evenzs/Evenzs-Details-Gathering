@@ -1,5 +1,6 @@
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
+import LifecycleSection from '@/components/LifecycleSection';
 import TrustSection from '@/components/TrustSection';
 import ChallengesSection from '@/components/ChallengesSection';
 import UseCasesSection from '@/components/UseCasesSection';
@@ -13,6 +14,7 @@ export default function Home() {
     <main className="bg-[#070C1B] min-h-screen overflow-x-hidden">
       <Navbar />
       <HeroSection />
+      <LifecycleSection />
       <TrustSection />
       <AboutSection />
       <ChallengesSection />
