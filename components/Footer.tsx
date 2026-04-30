@@ -31,7 +31,7 @@ export default function Footer() {
           {/* Contact & social */}
           <div className="flex flex-col gap-3">
             <a
-              href="mailto:siva.durbhakula@evenzs.com"
+              href="mailto:contact@evenzs.com"
               className="group flex items-center gap-2.5 text-[#4A5568] hover:text-[#C9A84C] text-sm transition-colors duration-300"
             >
               <div className="w-8 h-8 rounded-lg bg-[#C9A84C]/[0.08] border border-[#C9A84C]/[0.12] flex items-center justify-center group-hover:border-[#C9A84C]/30 transition-colors duration-300">
