@@ -23,7 +23,7 @@ export default function CalBookingSection() {
           w.Cal('init', { origin: 'https://cal.com' });
           w.Cal('inline', {
             elementOrSelector: '#cal-booking-embed',
-            calLink: 'siva-durbhakula-kmuett',
+            calLink: 'siva-durbhakula-kmuett/30min',
             config: { layout: 'month_view', theme: 'dark' },
           });
           w.Cal('ui', {
