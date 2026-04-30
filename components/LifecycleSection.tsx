@@ -23,7 +23,7 @@ const stages = [
 
 export default function LifecycleSection() {
   return (
-    <section className="py-24 sm:py-32">
+    <section className="pt-4 pb-24 sm:pt-6 sm:pb-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
 
         {/* Eyebrow */}
