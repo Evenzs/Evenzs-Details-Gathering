@@ -94,7 +94,7 @@ export default function FeedbackSection() {
   const labelCls = 'block text-xs font-semibold text-[#94A3B8] mb-2.5 tracking-wide uppercase';
 
   return (
-    <section id="listening" className="relative py-20 sm:py-28">
+    <section id="listening" className="relative py-16 sm:py-20">
       {/* Background */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#C9A84C]/[0.03] rounded-full blur-[180px]" />
@@ -107,9 +107,9 @@ export default function FeedbackSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10"
         >
-          <p className="text-[11px] uppercase tracking-[0.22em] text-[#C9A84C] font-semibold mb-5">
+          <p className="text-[11px] uppercase tracking-[0.22em] text-[#C9A84C] font-semibold mb-4">
             We&apos;re Listening
           </p>
           <h2 className="text-[2rem] sm:text-[2.8rem] font-bold text-white leading-[1.08] tracking-[-0.03em] mb-5">

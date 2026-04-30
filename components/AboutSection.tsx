@@ -16,7 +16,7 @@ export default function AboutSection() {
   };
 
   return (
-    <section id="about" className="relative py-28 sm:py-40 overflow-hidden">
+    <section id="about" className="relative py-16 sm:py-20 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
@@ -24,7 +24,7 @@ export default function AboutSection() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
           {/* Left — content */}
           <motion.div
@@ -33,11 +33,11 @@ export default function AboutSection() {
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.65 }}
           >
-            <p className="text-[11px] uppercase tracking-[0.22em] text-[#C9A84C] font-semibold mb-6">
+            <p className="text-[11px] uppercase tracking-[0.22em] text-[#C9A84C] font-semibold mb-4">
               About Evenzs
             </p>
 
-            <h2 className="text-[2rem] sm:text-[2.8rem] lg:text-[3.2rem] font-bold text-white leading-[1.08] tracking-[-0.03em] mb-8">
+            <h2 className="text-[2rem] sm:text-[2.8rem] lg:text-[3.2rem] font-bold text-white leading-[1.08] tracking-[-0.03em] mb-6">
               Built on listening,
               <br />
               <span className="text-[#64748B] font-normal italic font-[var(--font-playfair)]">
@@ -45,7 +45,7 @@ export default function AboutSection() {
               </span>
             </h2>
 
-            <div className="space-y-5 mb-10">
+            <div className="space-y-4 mb-8">
               <p className="text-[#94A3B8] text-base leading-[1.8]">
                 Evenzs is a founder-led startup building the operating system for modern event
                 execution. We believe the best software gets built through deep listening
@@ -78,7 +78,7 @@ export default function AboutSection() {
             transition={{ duration: 0.65, delay: 0.15 }}
           >
             <div className="card-dark rounded-3xl p-10 border-glow-gold">
-              <p className="text-[11px] uppercase tracking-[0.22em] text-[#C9A84C] font-semibold mb-8">
+              <p className="text-[11px] uppercase tracking-[0.22em] text-[#C9A84C] font-semibold mb-6">
                 By The Numbers
               </p>
               <div className="space-y-8">
@@ -95,7 +95,7 @@ export default function AboutSection() {
                 ))}
               </div>
 
-              <div className="mt-10 pt-8 border-t border-white/[0.06]">
+              <div className="mt-8 pt-6 border-t border-white/[0.06]">
                 <p className="text-[#64748B] text-sm leading-relaxed italic font-[var(--font-playfair)]">
                   &ldquo;We&apos;re not building what we think you need. We&apos;re building what
                   you tell us you can&apos;t live without.&rdquo;

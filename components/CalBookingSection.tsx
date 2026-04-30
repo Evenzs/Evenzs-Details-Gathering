@@ -11,9 +11,10 @@ export default function CalBookingSection() {
   ];
 
   return (
-    <section id="schedule" className="relative py-20 sm:py-28">
+    <section id="schedule" className="relative py-16 sm:py-20">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-[#C9A84C]/[0.025] rounded-full blur-[200px]" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
       </div>
 
       <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
@@ -23,22 +24,22 @@ export default function CalBookingSection() {
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-[11px] uppercase tracking-[0.22em] text-[#C9A84C] font-semibold mb-5">
+          <p className="text-[11px] uppercase tracking-[0.22em] text-[#C9A84C] font-semibold mb-4">
             Talk To Us
           </p>
-          <h2 className="text-[2rem] sm:text-[2.8rem] font-bold text-white leading-[1.08] tracking-[-0.03em] mb-5">
+          <h2 className="text-[2rem] sm:text-[2.8rem] font-bold text-white leading-[1.08] tracking-[-0.03em] mb-4">
             Prefer a real conversation?
             <br />
             <span className="text-[#64748B] font-normal italic font-[var(--font-playfair)]">
               Schedule a call.
             </span>
           </h2>
-          <p className="text-[#64748B] text-base leading-relaxed max-w-md mx-auto mb-10">
+          <p className="text-[#64748B] text-base leading-relaxed max-w-md mx-auto mb-8">
             We&apos;d love to hear directly from you. Pick a time and let&apos;s talk about the
             real challenges you face running events.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10 mb-12">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-8 mb-8">
             {perks.map(({ icon: Icon, label }) => (
               <div key={label} className="flex items-center gap-2.5 text-sm text-[#94A3B8]">
                 <div className="w-7 h-7 rounded-lg bg-[#C9A84C]/[0.08] border border-[#C9A84C]/[0.15] flex items-center justify-center shrink-0">

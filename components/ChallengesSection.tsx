@@ -14,7 +14,7 @@ const challenges = [
 
 export default function ChallengesSection() {
   return (
-    <section id="challenges" className="relative py-20 sm:py-28">
+    <section id="challenges" className="relative py-16 sm:py-20">
       {/* Background accent */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#C9A84C]/[0.02] rounded-full blur-[150px]" />
@@ -23,7 +23,7 @@ export default function ChallengesSection() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
         {/* Header — editorial asymmetric layout */}
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-20">
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}

@@ -14,9 +14,9 @@ export default function Home() {
       <HeroSection />
       <TrustSection />
       <ChallengesSection />
+      <AboutSection />
       <FeedbackSection />
       <CalBookingSection />
-      <AboutSection />
       <Footer />
     </main>
   );

@@ -12,7 +12,7 @@ export default function HeroSection() {
   return (
     <section
       id="why-evenzs"
-      className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden pt-20"
+      className="relative flex flex-col items-center justify-center text-center px-6 overflow-hidden pt-32 pb-24 sm:pt-40 sm:pb-28"
     >
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[600px] bg-[#C9A84C]/[0.04] rounded-full blur-[160px]" />
@@ -28,7 +28,7 @@ export default function HeroSection() {
             backgroundSize: '80px 80px',
           }}
         />
-        <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#070C1B] to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#070C1B] to-transparent" />
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto">
@@ -36,7 +36,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 32 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          className="text-[2.5rem] sm:text-[3.8rem] lg:text-[5.2rem] font-bold leading-[1.04] tracking-[-0.035em] text-white mb-8"
+          className="text-[2.5rem] sm:text-[3.8rem] lg:text-[5.2rem] font-bold leading-[1.04] tracking-[-0.035em] text-white mb-6"
         >
           The operating system
           <br />
@@ -49,7 +49,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.25 }}
-          className="text-[#94A3B8] text-base sm:text-lg leading-[1.8] max-w-2xl mx-auto mb-12"
+          className="text-[#94A3B8] text-base sm:text-lg leading-[1.8] max-w-2xl mx-auto mb-10"
         >
           Evenzs is being built around a simple belief: events should feel seamless for
           everyone — including the people running them. We&apos;re starting by listening to
@@ -60,7 +60,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="flex flex-col items-center gap-4"
+          className="flex flex-col items-center gap-3"
         >
           <button
             onClick={() => scrollTo('#feedback')}
@@ -75,20 +75,6 @@ export default function HeroSection() {
           </p>
         </motion.div>
       </div>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.4, duration: 0.6 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3"
-      >
-        <span className="text-[10px] text-[#4A5568] tracking-[0.2em] uppercase">Scroll</span>
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-          className="w-px h-8 bg-gradient-to-b from-[#C9A84C]/30 to-transparent"
-        />
-      </motion.div>
     </section>
   );
 }

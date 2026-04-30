@@ -7,7 +7,7 @@ import { Mail } from 'lucide-react';
 export default function Footer() {
   return (
     <footer className="relative border-t border-white/[0.06]">
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 py-16">
+      <div className="max-w-7xl mx-auto px-6 lg:px-10 py-10">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8">
 
           {/* Logo */}
@@ -41,7 +41,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-white/[0.06] mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="border-t border-white/[0.06] mt-8 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-[#334155]">
             &copy; {new Date().getFullYear()} Evenzs.com — All rights reserved.
           </p>
