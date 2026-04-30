@@ -1,6 +1,5 @@
 'use client';
 
-import Script from 'next/script';
 import { motion } from 'framer-motion';
 import { Calendar, Clock, MessageSquare } from 'lucide-react';
 
@@ -13,37 +12,16 @@ export default function CalBookingSection() {
 
   return (
     <section id="schedule" className="relative py-20 sm:py-28">
-      {/* Cal.com embed script — loaded once after page is interactive */}
-      <Script
-        src="https://app.cal.com/embed/embed.js"
-        strategy="afterInteractive"
-        onLoad={() => {
-          const w = window as any;
-          if (!w.Cal) return;
-          w.Cal('init', { origin: 'https://cal.com' });
-          w.Cal('inline', {
-            elementOrSelector: '#cal-booking-embed',
-            calLink: 'siva-durbhakula-kmuett/30min',
-            config: { layout: 'month_view', theme: 'dark' },
-          });
-          w.Cal('ui', {
-            styles: { branding: { brandColor: '#C9A84C' } },
-            hideEventTypeDetails: false,
-          });
-        }}
-      />
-
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-[#C9A84C]/[0.025] rounded-full blur-[200px]" />
       </div>
 
-      <div className="relative z-10 max-w-5xl mx-auto px-6">
+      <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-14"
         >
           <p className="text-[11px] uppercase tracking-[0.22em] text-[#C9A84C] font-semibold mb-5">
             Talk To Us
@@ -60,7 +38,7 @@ export default function CalBookingSection() {
             real challenges you face running events.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10 mb-12">
             {perks.map(({ icon: Icon, label }) => (
               <div key={label} className="flex items-center gap-2.5 text-sm text-[#94A3B8]">
                 <div className="w-7 h-7 rounded-lg bg-[#C9A84C]/[0.08] border border-[#C9A84C]/[0.15] flex items-center justify-center shrink-0">
@@ -70,19 +48,16 @@ export default function CalBookingSection() {
               </div>
             ))}
           </div>
-        </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-40px' }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="rounded-3xl overflow-hidden border border-white/[0.08]"
-        >
-          <div
-            id="cal-booking-embed"
-            style={{ width: '100%', minHeight: '700px' }}
-          />
+          <a
+            href="https://cal.com/siva-durbhakula-kmuett"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#C9A84C] text-black font-semibold text-sm tracking-wide hover:bg-[#D4B55A] active:scale-[0.98] transition-all duration-200 shadow-[0_0_40px_rgba(201,168,76,0.25)]"
+          >
+            <Calendar size={16} strokeWidth={2} />
+            Book a Call
+          </a>
         </motion.div>
       </div>
     </section>
