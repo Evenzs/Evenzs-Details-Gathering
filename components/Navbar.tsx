@@ -24,7 +24,10 @@ export default function Navbar() {
   const handleNav = (href: string) => {
     setMobileOpen(false);
     const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    if (!el) return;
+    const navOffset = 88;
+    const top = el.getBoundingClientRect().top + window.scrollY - navOffset;
+    window.scrollTo({ top, behavior: 'smooth' });
   };
 
   return (

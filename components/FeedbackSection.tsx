@@ -123,7 +123,7 @@ export default function FeedbackSection() {
   const totalSteps = STEPS.length;
 
   return (
-    <section id="listening" className="relative py-16 sm:py-20">
+    <section id="feedback" className="relative py-16 sm:py-20">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#C9A84C]/[0.03] rounded-full blur-[180px]" />
       </div>
@@ -153,7 +153,6 @@ export default function FeedbackSection() {
         </motion.div>
 
         <motion.div
-          id="feedback"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}

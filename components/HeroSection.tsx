@@ -6,7 +6,10 @@ import { ArrowRight, Sparkles, Phone } from 'lucide-react';
 export default function HeroSection() {
   const scrollTo = (id: string) => {
     const el = document.querySelector(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    if (!el) return;
+    const navOffset = 88;
+    const top = el.getBoundingClientRect().top + window.scrollY - navOffset;
+    window.scrollTo({ top, behavior: 'smooth' });
   };
 
   return (
