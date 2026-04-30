@@ -72,7 +72,7 @@ export default function ChallengesSection() {
             transition={{ duration: 0.5, delay: 0.15 }}
             className="text-[#64748B] text-sm leading-relaxed max-w-xs lg:pb-2"
           >
-            These are real things event professionals told us — verbatim — when we asked them about their hardest days.
+            These are real things event professionals told us when we asked them about their hardest days.
           </motion.p>
         </div>
 
