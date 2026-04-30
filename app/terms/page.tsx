@@ -151,8 +151,8 @@ export default function TermsPage() {
               <h2 className={h2Cls}>12. Contact Us</h2>
               <p className={pCls}>
                 If you have any questions about these Terms of Service, please contact us at{' '}
-                <a href="mailto:siva.durbhakula@evenzs.com" className="text-[#C9A84C] hover:underline">
-                  siva.durbhakula@evenzs.com
+                <a href="mailto:contact@evenzs.com" className="text-[#C9A84C] hover:underline">
+                  contact@evenzs.com
                 </a>.
               </p>
             </div>

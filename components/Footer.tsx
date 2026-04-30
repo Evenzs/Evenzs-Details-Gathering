@@ -37,7 +37,7 @@ export default function Footer() {
               <div className="w-8 h-8 rounded-lg bg-[#C9A84C]/[0.08] border border-[#C9A84C]/[0.12] flex items-center justify-center group-hover:border-[#C9A84C]/30 transition-colors duration-300">
                 <Mail size={13} className="text-[#C9A84C]" />
               </div>
-              siva.durbhakula@evenzs.com
+              contact@evenzs.com
             </a>
             <div className="flex items-center gap-3">
               <a

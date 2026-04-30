@@ -132,8 +132,8 @@ export default function PrivacyPage() {
               </ul>
               <p className={pCls}>
                 To exercise any of these rights, please contact us at{' '}
-                <a href="mailto:siva.durbhakula@evenzs.com" className="text-[#C9A84C] hover:underline">
-                  siva.durbhakula@evenzs.com
+                <a href="mailto:contact@evenzs.com" className="text-[#C9A84C] hover:underline">
+                  contact@evenzs.com
                 </a>.
               </p>
             </div>
@@ -159,8 +159,8 @@ export default function PrivacyPage() {
               </p>
               <p className={pCls}>
                 If you have questions or concerns about this Privacy Policy, please contact us at{' '}
-                <a href="mailto:siva.durbhakula@evenzs.com" className="text-[#C9A84C] hover:underline">
-                  siva.durbhakula@evenzs.com
+                <a href="mailto:contact@evenzs.com" className="text-[#C9A84C] hover:underline">
+                  contact@evenzs.com
                 </a>.
               </p>
             </div>
