@@ -86,7 +86,7 @@ export default function AboutSection() {
                   <p className="text-[#4A5568] text-xs mt-0.5">Founder, Evenzs</p>
                 </div>
                 <a
-                  href="https://www.linkedin.com/in/sivadurbhakula/"
+                  href="https://www.linkedin.com/in/siva-durbhakula/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-xs text-[#4A5568] hover:text-[#C9A84C] transition-colors duration-200 group"
