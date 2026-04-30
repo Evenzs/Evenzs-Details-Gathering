@@ -44,9 +44,9 @@ export default function AboutSection() {
                 and real conversations with the people who live the problem every day.
               </p>
               <p className="text-[#64748B] text-sm leading-[1.8]">
-                Before writing a single line of production code, we&apos;re speaking directly with
-                event professionals — planners, coordinators, venue managers, and vendors across
-                the United States.
+                We&apos;re starting where great products begin: with the people who use them.
+                Evenzs is listening to planners, coordinators, venue teams, and vendors across
+                the United States before shaping what comes next.
               </p>
             </div>
 
