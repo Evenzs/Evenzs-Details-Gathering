@@ -1,7 +1,9 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Play } from 'lucide-react';
+import WalkthroughModal from './WalkthroughModal';
 
 const useCases = [
   {
@@ -40,7 +42,9 @@ const useCases = [
 ];
 
 export default function UseCasesSection() {
-  const scrollToDemo = () => {
+  const [walkthroughOpen, setWalkthroughOpen] = useState(false);
+
+  const scrollToFeedback = () => {
     const el = document.querySelector('#feedback');
     if (!el) return;
     const top = el.getBoundingClientRect().top + window.scrollY - 88;
@@ -87,7 +91,7 @@ export default function UseCasesSection() {
               Three of the most common event headaches — and how Evenzs resolves each one.
             </p>
             <button
-              onClick={scrollToDemo}
+              onClick={() => setWalkthroughOpen(true)}
               className="group inline-flex items-center gap-2.5 px-6 py-3 rounded-full border border-[#C9A84C]/30 text-[#C9A84C] hover:border-[#C9A84C]/60 hover:bg-[#C9A84C]/[0.06] hover:text-[#D4AF37] font-medium text-sm tracking-wide transition-all duration-300 hover:-translate-y-0.5"
             >
               <Play size={13} strokeWidth={2} className="fill-current" />
@@ -174,7 +178,7 @@ export default function UseCasesSection() {
             </p>
           </div>
           <button
-            onClick={scrollToDemo}
+            onClick={scrollToFeedback}
             className="group shrink-0 inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#C9A84C] to-[#D4AF37] hover:from-[#D4AF37] hover:to-[#E8C84A] text-[#070C1B] font-semibold text-sm tracking-wide transition-all duration-300 shadow-lg shadow-[#C9A84C]/15 hover:-translate-y-0.5 whitespace-nowrap"
           >
             Notify me
@@ -182,6 +186,8 @@ export default function UseCasesSection() {
           </button>
         </motion.div>
       </div>
+
+      <WalkthroughModal open={walkthroughOpen} onClose={() => setWalkthroughOpen(false)} />
     </section>
   );
 }
