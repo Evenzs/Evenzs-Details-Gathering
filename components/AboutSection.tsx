@@ -6,7 +6,9 @@ import { ArrowRight, Sparkles, Linkedin } from 'lucide-react';
 export default function AboutSection() {
   const scrollToFeedback = () => {
     const el = document.querySelector('#feedback');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    if (!el) return;
+    const top = el.getBoundingClientRect().top + window.scrollY - 88;
+    window.scrollTo({ top, behavior: 'smooth' });
   };
 
   return (
