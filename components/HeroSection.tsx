@@ -26,6 +26,16 @@ export default function HeroSection() {
     setEmailSubmitting(true);
     try {
       await supabase.from('feedback_submissions').insert([{ email, event_type: 'Waitlist' }]);
+
+      const apiUrl = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/functions/v1/send-waitlist-confirmation`;
+      fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      }).catch(() => {});
     } catch {
       // fail silently
     } finally {
@@ -117,7 +127,7 @@ export default function HeroSection() {
               className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-[#C9A84C]/30 bg-[#C9A84C]/[0.06] backdrop-blur-sm text-[#C9A84C] text-sm font-medium"
             >
               <Sparkles size={14} strokeWidth={2} />
-              You&apos;re on the list — we&apos;ll be in touch.
+              You&apos;re on the list — check your inbox.
             </motion.div>
           ) : (
             <form
