@@ -2,17 +2,37 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Calendar, MessageSquare, CreditCard, ClipboardList, Phone, Mail, Clock, Users, TriangleAlert as AlertTriangle, CircleCheck as CheckCircle2, ArrowRight, X, Zap } from 'lucide-react';
+import {
+  Calendar,
+  MessageSquare,
+  CreditCard,
+  ClipboardList,
+  Phone,
+  Mail,
+  Clock,
+  Users,
+  TriangleAlert as AlertTriangle,
+  CircleCheck as CheckCircle2,
+  ArrowRight,
+  Zap,
+  Wifi,
+  Battery,
+  Signal,
+  Lock,
+  ChevronLeft,
+  ChevronRight,
+  Share,
+  LayoutGrid,
+  Plus,
+} from 'lucide-react';
 
-const chaosApps = [
-  { icon: Calendar, label: 'Google Calendar', color: '#4285F4', notifications: 3 },
-  { icon: MessageSquare, label: 'WhatsApp', color: '#25D366', notifications: 12 },
-  { icon: CreditCard, label: 'QuickBooks', color: '#2CA01C', notifications: 1 },
-  { icon: ClipboardList, label: 'Trello', color: '#0079BF', notifications: 5 },
-  { icon: Phone, label: 'Phone Calls', color: '#FF6B35', notifications: 7 },
-  { icon: Mail, label: 'Gmail', color: '#EA4335', notifications: 24 },
-  { icon: Clock, label: 'Reminders', color: '#FF9500', notifications: 9 },
-  { icon: Users, label: 'Spreadsheets', color: '#0F9D58', notifications: 2 },
+const notifications = [
+  { icon: Mail, app: 'Gmail', title: 'Vendor hasn\'t replied', subtitle: 'RE: Floral arrangements for June 15...', time: '3m ago', color: '#EA4335', bg: '#EA433515' },
+  { icon: MessageSquare, app: 'WhatsApp', title: '12 new messages', subtitle: 'Wedding Group: "Has anyone confirmed the DJ?"', time: '8m ago', color: '#25D366', bg: '#25D36615' },
+  { icon: Phone, app: 'Phone', title: '2 Missed Calls', subtitle: 'Caterer - Urgent', time: '15m ago', color: '#FF6B35', bg: '#FF6B3515' },
+  { icon: CreditCard, app: 'QuickBooks', title: 'Invoice Overdue', subtitle: 'Photographer payment - $2,400 past due', time: '1h ago', color: '#2CA01C', bg: '#2CA01C15' },
+  { icon: Calendar, app: 'Google Calendar', title: 'Conflict Detected', subtitle: 'Venue walkthrough overlaps with...', time: '2h ago', color: '#4285F4', bg: '#4285F415' },
+  { icon: ClipboardList, app: 'Trello', title: '5 tasks overdue', subtitle: 'Seating chart, menu cards, place...', time: '3h ago', color: '#0079BF', bg: '#0079BF15' },
 ];
 
 export default function ProblemAnimation() {
@@ -27,7 +47,7 @@ export default function ProblemAnimation() {
         <div className="absolute top-1/2 right-1/4 translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#C9A84C]/[0.02] rounded-full blur-[100px]" />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-10">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -47,20 +67,20 @@ export default function ProblemAnimation() {
         </motion.div>
 
         {/* Animation area */}
-        <div className="relative flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-8">
-          {/* CHAOS state — left side */}
+        <div className="relative flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-6">
+          {/* CHAOS state — iPhone mockup */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="relative w-[340px] h-[360px] sm:w-[420px] sm:h-[400px] flex-shrink-0"
+            className="relative flex-shrink-0"
           >
             {/* Chaos label */}
             <motion.div
               initial={{ opacity: 0, y: 8 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.4, delay: 0.3 }}
-              className="absolute -top-8 left-1/2 -translate-x-1/2 flex items-center gap-1.5"
+              className="flex items-center gap-1.5 justify-center mb-5"
             >
               <AlertTriangle size={12} className="text-red-400/80" />
               <span className="text-[11px] uppercase tracking-[0.18em] text-red-400/80 font-semibold">
@@ -68,112 +88,110 @@ export default function ProblemAnimation() {
               </span>
             </motion.div>
 
-            {/* Phone mockup frame */}
+            {/* iPhone frame */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.7, delay: 0.4 }}
-              className="absolute top-4 left-1/2 -translate-x-1/2 w-[200px] sm:w-[220px] h-[300px] sm:h-[340px] rounded-[24px] border-2 border-white/[0.08] bg-[#0A0F1C] overflow-hidden shadow-2xl shadow-black/50"
+              initial={{ opacity: 0, y: 20, rotateY: -5 }}
+              animate={isInView ? { opacity: 1, y: 0, rotateY: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="relative mx-auto"
             >
-              {/* Phone status bar */}
-              <div className="h-7 bg-[#0F1729] flex items-center justify-between px-4">
-                <span className="text-[8px] text-white/40">9:41</span>
-                <div className="flex gap-1">
-                  <div className="w-3 h-1.5 rounded-sm bg-white/30" />
-                  <div className="w-1.5 h-1.5 rounded-full bg-white/30" />
+              {/* Outer iPhone shell */}
+              <div className="relative w-[240px] sm:w-[280px] h-[490px] sm:h-[570px] rounded-[40px] sm:rounded-[48px] bg-[#1A1A1E] p-[3px] shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_40px_80px_-20px_rgba(0,0,0,0.8),0_0_40px_rgba(0,0,0,0.4)]">
+                {/* Titanium edge highlight */}
+                <div className="absolute inset-0 rounded-[40px] sm:rounded-[48px] bg-gradient-to-b from-white/[0.08] via-transparent to-white/[0.03] pointer-events-none" />
+
+                {/* Screen bezel */}
+                <div className="relative w-full h-full rounded-[37px] sm:rounded-[45px] bg-black overflow-hidden">
+                  {/* Dynamic Island */}
+                  <div className="absolute top-3 sm:top-4 left-1/2 -translate-x-1/2 z-20 w-[90px] sm:w-[110px] h-[25px] sm:h-[30px] bg-black rounded-full flex items-center justify-center">
+                    <div className="w-[8px] h-[8px] rounded-full bg-[#1a1a2e] border border-[#2a2a3e]" />
+                  </div>
+
+                  {/* iOS Status Bar */}
+                  <div className="relative z-10 flex items-center justify-between px-6 sm:px-8 pt-4 sm:pt-5 pb-1">
+                    <span className="text-[10px] sm:text-[11px] text-white font-semibold">9:41</span>
+                    <div className="flex items-center gap-1">
+                      <Signal size={11} className="text-white" strokeWidth={2.5} />
+                      <Wifi size={12} className="text-white" strokeWidth={2.5} />
+                      <Battery size={16} className="text-white" strokeWidth={2} />
+                    </div>
+                  </div>
+
+                  {/* Lock screen background — gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-[#1C1C2E] via-[#0F0F1A] to-[#0A0A12]" />
+
+                  {/* Lock icon + time */}
+                  <div className="relative z-10 flex flex-col items-center mt-6 sm:mt-8 mb-3 sm:mb-4">
+                    <Lock size={10} className="text-white/40 mb-1" />
+                    <span className="text-[9px] text-white/40 font-medium tracking-wide">Wednesday, June 12</span>
+                    <span className="text-[28px] sm:text-[36px] text-white font-light tracking-tight leading-tight">9:41</span>
+                  </div>
+
+                  {/* iOS Notification stack */}
+                  <div className="relative z-10 px-3 sm:px-4 space-y-[6px] sm:space-y-2">
+                    {notifications.map((notif, i) => (
+                      <motion.div
+                        key={notif.app}
+                        initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                        animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+                        transition={{ duration: 0.4, delay: 0.7 + i * 0.12, type: 'spring', stiffness: 120 }}
+                      >
+                        <motion.div
+                          animate={isInView ? { x: [0, i % 2 === 0 ? 1 : -1, 0] } : {}}
+                          transition={{ duration: 3 + i * 0.4, repeat: Infinity, ease: 'easeInOut', delay: i * 0.6 }}
+                          className="flex items-start gap-2 sm:gap-2.5 p-2 sm:p-2.5 rounded-2xl bg-white/[0.08] backdrop-blur-xl border border-white/[0.05]"
+                        >
+                          {/* App icon */}
+                          <div
+                            className="w-8 h-8 sm:w-9 sm:h-9 rounded-[8px] sm:rounded-[10px] flex items-center justify-center flex-shrink-0"
+                            style={{ backgroundColor: notif.bg, border: `1px solid ${notif.color}30` }}
+                          >
+                            <notif.icon size={14} style={{ color: notif.color }} strokeWidth={2} />
+                          </div>
+                          {/* Content */}
+                          <div className="flex-1 min-w-0 pt-0.5">
+                            <div className="flex items-center justify-between gap-1">
+                              <span className="text-[9px] sm:text-[10px] text-white/50 font-medium uppercase tracking-wide">{notif.app}</span>
+                              <span className="text-[7px] sm:text-[8px] text-white/30">{notif.time}</span>
+                            </div>
+                            <p className="text-[9px] sm:text-[10px] text-white/90 font-semibold truncate leading-tight mt-0.5">{notif.title}</p>
+                            <p className="text-[8px] sm:text-[9px] text-white/40 truncate leading-tight mt-0.5">{notif.subtitle}</p>
+                          </div>
+                        </motion.div>
+                      </motion.div>
+                    ))}
+                  </div>
+
+                  {/* Bottom indicator bar */}
+                  <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-[100px] sm:w-[120px] h-[4px] rounded-full bg-white/20" />
                 </div>
               </div>
 
-              {/* Notification stack — chaotic */}
-              <div className="p-2.5 space-y-2 overflow-hidden">
-                {chaosApps.slice(0, 6).map((app, i) => (
-                  <motion.div
-                    key={app.label}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={isInView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ duration: 0.4, delay: 0.6 + i * 0.1 }}
-                    className="relative"
-                  >
-                    <motion.div
-                      animate={isInView ? { x: [0, i % 2 === 0 ? 2 : -2, 0] } : {}}
-                      transition={{ duration: 2 + i * 0.3, repeat: Infinity, ease: 'easeInOut', delay: i * 0.5 }}
-                      className="flex items-center gap-2 p-2 rounded-lg bg-white/[0.04] border border-white/[0.06]"
-                    >
-                      <div
-                        className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0"
-                        style={{ backgroundColor: `${app.color}20` }}
-                      >
-                        <app.icon size={12} style={{ color: app.color }} strokeWidth={2} />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <p className="text-[9px] text-white/70 font-medium truncate">{app.label}</p>
-                        <p className="text-[8px] text-white/30 truncate">
-                          {app.notifications} unread {app.notifications > 5 ? 'urgent' : ''} messages
-                        </p>
-                      </div>
-                      <div className="w-4 h-4 rounded-full bg-red-500/80 flex items-center justify-center flex-shrink-0">
-                        <span className="text-[7px] text-white font-bold">{app.notifications}</span>
-                      </div>
-                    </motion.div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Floating scattered cards around phone */}
-            {[
-              { x: -70, y: 30, rotate: -12, icon: Mail, label: 'Vendor Inquiry', sub: 'Unread - 3h ago' },
-              { x: 100, y: 60, rotate: 8, icon: Phone, label: 'Missed Call', sub: 'Client - 2x' },
-              { x: -50, y: 220, rotate: -6, icon: CreditCard, label: 'Invoice #847', sub: 'Overdue' },
-              { x: 110, y: 240, rotate: 10, icon: ClipboardList, label: 'Checklist', sub: '4 items left' },
-            ].map((card, i) => (
+              {/* Notification count badge */}
               <motion.div
-                key={card.label}
-                initial={{ opacity: 0, scale: 0.6 }}
+                initial={{ opacity: 0, scale: 0 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.5, delay: 1 + i * 0.15, type: 'spring', stiffness: 100 }}
-                className="absolute"
-                style={{
-                  left: `calc(50% + ${card.x}px)`,
-                  top: `${card.y}px`,
-                }}
+                transition={{ duration: 0.4, delay: 1.8, type: 'spring', stiffness: 200 }}
+                className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3"
               >
                 <motion.div
-                  animate={isInView ? { y: [0, -4, 0, 3, 0], rotate: [card.rotate, card.rotate + 2, card.rotate - 1, card.rotate] } : {}}
-                  transition={{ duration: 4 + i * 0.5, repeat: Infinity, ease: 'easeInOut', delay: i * 0.4 }}
-                  className="relative"
-                  style={{ transform: `rotate(${card.rotate}deg)` }}
+                  animate={{ scale: [1, 1.1, 1] }}
+                  transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+                  className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-red-500 border-[3px] border-[#0A0F1C] flex items-center justify-center shadow-lg shadow-red-500/30"
                 >
-                  <div className="w-[100px] sm:w-[120px] p-2 rounded-xl bg-[#0F1729]/95 border border-red-400/10 shadow-xl shadow-black/40 backdrop-blur-sm">
-                    <div className="flex items-center gap-1.5 mb-1">
-                      <card.icon size={10} className="text-red-400/70" strokeWidth={2} />
-                      <span className="text-[8px] text-white/70 font-medium truncate">{card.label}</span>
-                    </div>
-                    <p className="text-[7px] text-red-400/60">{card.sub}</p>
-                  </div>
-                  <div className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-red-500 border border-[#0F1729] flex items-center justify-center">
-                    <X size={6} className="text-white" strokeWidth={3} />
-                  </div>
+                  <span className="text-white text-xs sm:text-sm font-bold">47</span>
                 </motion.div>
               </motion.div>
-            ))}
+            </motion.div>
 
-            {/* Stress indicator */}
+            {/* Stress label */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.5, delay: 1.6 }}
-              className="absolute bottom-0 left-1/2 -translate-x-1/2"
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 1 } : {}}
+              transition={{ duration: 0.5, delay: 2 }}
+              className="mt-4 text-center"
             >
-              <motion.div
-                animate={isInView ? { scale: [1, 1.05, 1] } : {}}
-                transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-                className="px-3 py-1.5 rounded-full bg-red-500/10 border border-red-400/20"
-              >
-                <span className="text-[9px] text-red-400 font-medium tracking-wide">
-                  47 notifications pending
-                </span>
-              </motion.div>
+              <span className="text-[10px] text-red-400/60 font-medium">Overwhelmed. Scattered. Things slip.</span>
             </motion.div>
           </motion.div>
 
@@ -181,7 +199,7 @@ export default function ProblemAnimation() {
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.5, delay: 1.8 }}
+            transition={{ duration: 0.5, delay: 2.2 }}
             className="flex flex-col items-center gap-3 flex-shrink-0"
           >
             <motion.div
@@ -196,19 +214,19 @@ export default function ProblemAnimation() {
             </span>
           </motion.div>
 
-          {/* UNIFIED state — right side */}
+          {/* UNIFIED state — Browser mockup */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.7, delay: 2 }}
-            className="relative w-[340px] sm:w-[420px] flex-shrink-0"
+            transition={{ duration: 0.7, delay: 2.4 }}
+            className="relative w-[340px] sm:w-[460px] flex-shrink-0"
           >
             {/* Unified label */}
             <motion.div
               initial={{ opacity: 0, y: 8 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.4, delay: 2.2 }}
-              className="flex items-center gap-1.5 mb-4 justify-center"
+              transition={{ duration: 0.4, delay: 2.5 }}
+              className="flex items-center gap-1.5 mb-5 justify-center"
             >
               <CheckCircle2 size={12} className="text-emerald-400/80" />
               <span className="text-[11px] uppercase tracking-[0.18em] text-emerald-400/80 font-semibold">
@@ -216,88 +234,140 @@ export default function ProblemAnimation() {
               </span>
             </motion.div>
 
-            {/* Unified dashboard — richer mockup */}
+            {/* Safari-style browser window */}
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 2.3 }}
-              className="rounded-2xl border border-[#C9A84C]/15 bg-[#0B1120]/90 backdrop-blur-sm overflow-hidden shadow-2xl shadow-[#C9A84C]/[0.05]"
+              transition={{ duration: 0.6, delay: 2.6 }}
+              className="rounded-xl sm:rounded-2xl overflow-hidden border border-white/[0.08] shadow-[0_40px_80px_-20px_rgba(0,0,0,0.6),0_0_0_1px_rgba(201,168,76,0.08)]"
             >
-              {/* Browser-like header */}
-              <div className="px-4 py-3 bg-[#0F1729] border-b border-white/[0.06] flex items-center gap-3">
-                <div className="flex gap-1.5">
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F57]" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#28C840]" />
+              {/* Browser chrome — Safari style */}
+              <div className="bg-[#28282C] border-b border-white/[0.06]">
+                {/* Tab bar */}
+                <div className="flex items-center px-3 sm:px-4 pt-2.5 sm:pt-3 pb-0">
+                  {/* Window controls */}
+                  <div className="flex gap-[6px] sm:gap-2 mr-3 sm:mr-4">
+                    <div className="w-[10px] h-[10px] sm:w-3 sm:h-3 rounded-full bg-[#FF5F57] border border-[#E0443E]/50" />
+                    <div className="w-[10px] h-[10px] sm:w-3 sm:h-3 rounded-full bg-[#FEBC2E] border border-[#DEA123]/50" />
+                    <div className="w-[10px] h-[10px] sm:w-3 sm:h-3 rounded-full bg-[#28C840] border border-[#1EAA33]/50" />
+                  </div>
+
+                  {/* Active tab */}
+                  <div className="flex-1 flex items-center">
+                    <div className="relative px-3 sm:px-4 py-1.5 sm:py-2 bg-[#1E1E22] rounded-t-lg border border-white/[0.06] border-b-0 max-w-[200px] sm:max-w-[240px]">
+                      <div className="flex items-center gap-1.5 sm:gap-2">
+                        <div className="w-3 h-3 sm:w-3.5 sm:h-3.5 rounded-sm bg-[#C9A84C]/20 flex items-center justify-center">
+                          <Zap size={7} className="text-[#C9A84C]" />
+                        </div>
+                        <span className="text-[9px] sm:text-[10px] text-white/70 font-medium truncate">Evenzs - Event Dashboard</span>
+                      </div>
+                    </div>
+                    <div className="ml-1 w-5 h-5 sm:w-6 sm:h-6 rounded-md flex items-center justify-center hover:bg-white/[0.05]">
+                      <Plus size={10} className="text-white/30" />
+                    </div>
+                  </div>
                 </div>
-                <div className="flex-1 h-5 rounded-md bg-white/[0.04] border border-white/[0.06] flex items-center justify-center">
-                  <span className="text-[8px] text-white/30">app.evenzs.com/dashboard</span>
+
+                {/* URL bar */}
+                <div className="flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-2 sm:py-2.5 bg-[#1E1E22]">
+                  <div className="flex items-center gap-1 sm:gap-1.5">
+                    <ChevronLeft size={12} className="text-white/20" />
+                    <ChevronRight size={12} className="text-white/20" />
+                  </div>
+                  <div className="flex-1 h-7 sm:h-8 rounded-lg bg-[#38383C] border border-white/[0.04] flex items-center justify-center px-3 gap-1.5">
+                    <Lock size={9} className="text-white/30" />
+                    <span className="text-[9px] sm:text-[10px] text-white/50 font-medium">app.evenzs.com/dashboard</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 sm:gap-2">
+                    <Share size={12} className="text-white/20" />
+                    <LayoutGrid size={12} className="text-white/20" />
+                  </div>
                 </div>
               </div>
 
-              <div className="p-5">
-                {/* Dashboard header */}
-                <div className="flex items-center justify-between mb-5">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#C9A84C]/20 to-[#C9A84C]/5 border border-[#C9A84C]/20 flex items-center justify-center">
-                      <Zap size={14} className="text-[#C9A84C]" />
+              {/* Browser content — Dashboard */}
+              <div className="bg-[#0B0F1A] p-4 sm:p-6">
+                {/* Dashboard top bar */}
+                <div className="flex items-center justify-between mb-5 sm:mb-6">
+                  <div className="flex items-center gap-2.5 sm:gap-3">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-[#C9A84C]/20 to-[#C9A84C]/5 border border-[#C9A84C]/20 flex items-center justify-center">
+                      <Zap size={16} className="text-[#C9A84C]" />
                     </div>
                     <div>
-                      <span className="text-white text-sm font-semibold block leading-tight">Event Dashboard</span>
-                      <span className="text-[9px] text-white/40">Sarah&apos;s Wedding - June 15</span>
+                      <span className="text-white text-xs sm:text-sm font-semibold block leading-tight">Sarah & James Wedding</span>
+                      <span className="text-[9px] sm:text-[10px] text-white/40">June 15, 2026 - The Grand Ballroom</span>
                     </div>
                   </div>
-                  <div className="flex items-center gap-1.5">
-                    <div className="px-2 py-0.5 rounded-full bg-emerald-400/10 border border-emerald-400/20">
-                      <span className="text-[8px] text-emerald-400 font-medium">All systems go</span>
+                  <div className="hidden sm:flex items-center gap-2">
+                    <div className="px-2.5 py-1 rounded-full bg-emerald-400/10 border border-emerald-400/20">
+                      <span className="text-[9px] text-emerald-400 font-semibold">Live</span>
                     </div>
                   </div>
                 </div>
 
-                {/* Progress bar */}
-                <div className="mb-5">
-                  <div className="flex items-center justify-between mb-1.5">
-                    <span className="text-[9px] text-white/50">Event readiness</span>
-                    <span className="text-[9px] text-emerald-400 font-medium">94%</span>
+                {/* Progress section */}
+                <div className="mb-5 sm:mb-6 p-3 sm:p-4 rounded-xl bg-white/[0.02] border border-white/[0.04]">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-[10px] sm:text-xs text-white/60 font-medium">Event Readiness</span>
+                    <span className="text-[10px] sm:text-xs text-emerald-400 font-bold">94%</span>
                   </div>
-                  <div className="h-1.5 rounded-full bg-white/[0.06] overflow-hidden">
+                  <div className="h-2 sm:h-2.5 rounded-full bg-white/[0.06] overflow-hidden">
                     <motion.div
                       initial={{ width: '0%' }}
                       animate={isInView ? { width: '94%' } : {}}
-                      transition={{ duration: 1.2, delay: 2.6, ease: 'easeOut' }}
-                      className="h-full rounded-full bg-gradient-to-r from-[#C9A84C] to-emerald-400"
+                      transition={{ duration: 1.5, delay: 3, ease: 'easeOut' }}
+                      className="h-full rounded-full bg-gradient-to-r from-[#C9A84C] via-emerald-400 to-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.3)]"
                     />
+                  </div>
+                  <div className="flex items-center justify-between mt-2">
+                    <span className="text-[8px] sm:text-[9px] text-white/30">3 days until event</span>
+                    <span className="text-[8px] sm:text-[9px] text-white/30">28 of 30 tasks complete</span>
                   </div>
                 </div>
 
                 {/* Dashboard rows */}
-                {[
-                  { icon: Users, label: 'Vendors', status: 'All confirmed', color: 'text-emerald-400', bg: 'bg-emerald-400/10' },
-                  { icon: Clock, label: 'Timeline', status: 'On track', color: 'text-emerald-400', bg: 'bg-emerald-400/10' },
-                  { icon: MessageSquare, label: 'Communications', status: 'In sync', color: 'text-emerald-400', bg: 'bg-emerald-400/10' },
-                  { icon: CreditCard, label: 'Payments', status: 'Settled', color: 'text-[#C9A84C]', bg: 'bg-[#C9A84C]/10' },
-                  { icon: ClipboardList, label: 'Tasks', status: '28/28 done', color: 'text-emerald-400', bg: 'bg-emerald-400/10' },
-                ].map((row, i) => (
-                  <motion.div
-                    key={row.label}
-                    initial={{ opacity: 0, x: -12 }}
-                    animate={isInView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ duration: 0.4, delay: 2.5 + i * 0.12 }}
-                    className="flex items-center justify-between py-2.5 border-b border-white/[0.04] last:border-0"
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className={`w-6 h-6 rounded-md ${row.bg} flex items-center justify-center`}>
-                        <row.icon size={11} className={row.color} strokeWidth={2} />
+                <div className="space-y-1">
+                  {[
+                    { icon: Users, label: 'Vendors', status: 'All confirmed', statusDetail: '8/8', color: 'text-emerald-400', bg: 'bg-emerald-400/10', borderColor: 'border-emerald-400/20' },
+                    { icon: Clock, label: 'Timeline', status: 'On track', statusDetail: 'Day-of ready', color: 'text-emerald-400', bg: 'bg-emerald-400/10', borderColor: 'border-emerald-400/20' },
+                    { icon: MessageSquare, label: 'Communications', status: 'In sync', statusDetail: '0 pending', color: 'text-emerald-400', bg: 'bg-emerald-400/10', borderColor: 'border-emerald-400/20' },
+                    { icon: CreditCard, label: 'Payments', status: 'Settled', statusDetail: '$47,200', color: 'text-[#C9A84C]', bg: 'bg-[#C9A84C]/10', borderColor: 'border-[#C9A84C]/20' },
+                    { icon: ClipboardList, label: 'Checklist', status: 'Complete', statusDetail: '28/28', color: 'text-emerald-400', bg: 'bg-emerald-400/10', borderColor: 'border-emerald-400/20' },
+                  ].map((row, i) => (
+                    <motion.div
+                      key={row.label}
+                      initial={{ opacity: 0, x: -12 }}
+                      animate={isInView ? { opacity: 1, x: 0 } : {}}
+                      transition={{ duration: 0.4, delay: 2.9 + i * 0.12 }}
+                      className="flex items-center justify-between py-2.5 sm:py-3 px-3 sm:px-4 rounded-lg hover:bg-white/[0.02] transition-colors border border-transparent hover:border-white/[0.04]"
+                    >
+                      <div className="flex items-center gap-2.5 sm:gap-3">
+                        <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg ${row.bg} border ${row.borderColor} flex items-center justify-center`}>
+                          <row.icon size={13} className={row.color} strokeWidth={2} />
+                        </div>
+                        <div>
+                          <span className="text-[#CBD5E1] text-[11px] sm:text-xs font-medium block">{row.label}</span>
+                          <span className="text-[8px] sm:text-[9px] text-white/30">{row.statusDetail}</span>
+                        </div>
                       </div>
-                      <span className="text-[#CBD5E1] text-xs font-medium">{row.label}</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className={`text-[10px] font-medium ${row.color}`}>{row.status}</span>
-                      <CheckCircle2 size={10} className="text-emerald-400/60" />
-                    </div>
-                  </motion.div>
-                ))}
+                      <div className="flex items-center gap-2">
+                        <span className={`text-[9px] sm:text-[10px] font-semibold ${row.color}`}>{row.status}</span>
+                        <CheckCircle2 size={12} className="text-emerald-400/50" />
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
+            </motion.div>
+
+            {/* Calm label */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 1 } : {}}
+              transition={{ duration: 0.5, delay: 3.5 }}
+              className="mt-4 text-center"
+            >
+              <span className="text-[10px] text-emerald-400/60 font-medium">Calm. Controlled. Nothing missed.</span>
             </motion.div>
           </motion.div>
         </div>
@@ -306,7 +376,7 @@ export default function ProblemAnimation() {
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 3 }}
+          transition={{ duration: 0.5, delay: 3.6 }}
           className="text-center text-[#64748B] text-sm leading-relaxed max-w-lg mx-auto mt-14 sm:mt-16"
         >
           Spreadsheets, group chats, and sticky notes weren&apos;t designed for live event
