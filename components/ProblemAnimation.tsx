@@ -174,13 +174,9 @@ export default function ProblemAnimation() {
                 transition={{ duration: 0.4, delay: 1.8, type: 'spring', stiffness: 200 }}
                 className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3"
               >
-                <motion.div
-                  animate={{ scale: [1, 1.1, 1] }}
-                  transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-                  className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-red-500 border-[3px] border-[#0A0F1C] flex items-center justify-center shadow-lg shadow-red-500/30"
-                >
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-red-500 border-[3px] border-[#0A0F1C] flex items-center justify-center shadow-lg shadow-red-500/30">
                   <span className="text-white text-xs sm:text-sm font-bold">47</span>
-                </motion.div>
+                </div>
               </motion.div>
             </motion.div>
 
@@ -195,20 +191,16 @@ export default function ProblemAnimation() {
             </motion.div>
           </motion.div>
 
-          {/* Arrow transition */}
+          {/* Arrow transition — hidden on mobile, visible on desktop */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.5, delay: 2.2 }}
-            className="flex flex-col items-center gap-3 flex-shrink-0"
+            className="hidden lg:flex flex-col items-center gap-3 flex-shrink-0"
           >
-            <motion.div
-              animate={isInView ? { scale: [1, 1.1, 1] } : {}}
-              transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
-              className="w-14 h-14 rounded-full bg-gradient-to-br from-[#C9A84C]/30 to-[#C9A84C]/10 border border-[#C9A84C]/30 flex items-center justify-center shadow-lg shadow-[#C9A84C]/10"
-            >
-              <ArrowRight size={20} className="text-[#C9A84C] lg:rotate-0 rotate-90" />
-            </motion.div>
+            <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#C9A84C]/30 to-[#C9A84C]/10 border border-[#C9A84C]/30 flex items-center justify-center shadow-lg shadow-[#C9A84C]/10">
+              <ArrowRight size={20} className="text-[#C9A84C]" />
+            </div>
             <span className="text-[10px] uppercase tracking-[0.2em] text-[#C9A84C]/70 font-semibold">
               Evenzs
             </span>
