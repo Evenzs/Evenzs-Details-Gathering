@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -26,13 +25,11 @@ export default function TermsPage() {
               priority
             />
           </Link>
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-[13px] text-[#94A3B8] hover:text-white transition-colors duration-300"
-          >
-            <ArrowLeft size={14} />
-            Back to Home
-          </Link>
+          <div className="flex items-center gap-6 sm:gap-8">
+            <Link href="/privacy" className="text-[13px] text-[#94A3B8] hover:text-white transition-colors duration-300">Privacy</Link>
+            <Link href="/terms" className="text-[13px] text-white font-medium transition-colors duration-300">Terms</Link>
+            <Link href="/support" className="text-[13px] text-[#94A3B8] hover:text-white transition-colors duration-300">Support</Link>
+          </div>
         </div>
       </nav>
 
@@ -50,7 +47,7 @@ export default function TermsPage() {
             Terms of Service
           </h1>
           <p className="text-[#64748B] text-sm mb-12">
-            Last updated: April 29, 2026
+            Effective Date: May 6, 2026
           </p>
 
           <div className="card-dark rounded-3xl p-8 sm:p-10 border-glow-gold">
@@ -58,102 +55,182 @@ export default function TermsPage() {
             <div className={sectionCls}>
               <h2 className={h2Cls}>1. Agreement to Terms</h2>
               <p className={pCls}>
-                By accessing or using the Evenzs.com website (&ldquo;Site&rdquo;), you agree to be bound by these Terms of Service (&ldquo;Terms&rdquo;). If you do not agree to these Terms, please do not use the Site. These Terms constitute a legally binding agreement between you and Evenzs.com (&ldquo;Evenzs,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;).
+                By accessing or using the Evenzs Ops website, mobile applications, and related digital services (collectively, the &ldquo;Service&rdquo;), you agree to be bound by these Terms of Service (&ldquo;Terms&rdquo;). If you do not agree to these Terms, please do not use the Service. These Terms constitute a legally binding agreement between you and Scube Innovations LLC, doing business as Evenzs (&ldquo;Evenzs,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;).
               </p>
             </div>
 
             <div className={sectionCls}>
               <h2 className={h2Cls}>2. Description of Service</h2>
               <p className={pCls}>
-                Evenzs is currently in a customer discovery phase. Our Site provides information about our mission and offers a feedback form through which event professionals can share their experiences, challenges, and insights related to event operations. We are not currently offering a commercial product or service for sale.
+                Evenzs Ops is an event operations platform that provides tools for event planning, workflow management, vendor coordination, task tracking, budget management, and AI-assisted planning features. The Service is provided through our website, mobile applications, beta features, and related digital services.
+              </p>
+              <p className={pCls}>
+                Certain features may be experimental, beta, or pre-release and may change, be limited, or be discontinued without notice. Beta features are provided &ldquo;as is&rdquo; and may not perform at the level of generally available features.
               </p>
             </div>
 
             <div className={sectionCls}>
-              <h2 className={h2Cls}>3. Use of the Site</h2>
-              <p className={pCls}>You agree to use the Site only for lawful purposes and in accordance with these Terms. You agree not to:</p>
+              <h2 className={h2Cls}>3. Accounts and Registration</h2>
+              <p className={pCls}>
+                To access certain features of the Service, you may be required to create an account. When you create an account, you agree to:
+              </p>
               <ul className={ulCls}>
-                <li>Use the Site in any way that violates any applicable federal, state, local, or international law or regulation</li>
-                <li>Submit false, misleading, or fraudulent information through any form on the Site</li>
-                <li>Attempt to gain unauthorized access to any portion of the Site, its servers, or any systems connected to the Site</li>
-                <li>Use any automated system, including bots, scrapers, or spiders, to access the Site for any purpose</li>
-                <li>Introduce any viruses, trojan horses, worms, or other harmful material to the Site</li>
-                <li>Interfere with or disrupt the integrity or performance of the Site</li>
+                <li>Provide accurate, current, and complete information</li>
+                <li>Maintain the security and confidentiality of your login credentials</li>
+                <li>Promptly notify us of any unauthorized use of your account</li>
+                <li>Accept responsibility for all activities that occur under your account</li>
+              </ul>
+              <p className={pCls}>
+                You may authenticate using third-party providers (such as Google or Apple). Your use of those services is subject to their respective terms and privacy policies.
+              </p>
+            </div>
+
+            <div className={sectionCls}>
+              <h2 className={h2Cls}>4. Acceptable Use</h2>
+              <p className={pCls}>You agree to use the Service only for lawful purposes and in accordance with these Terms. You agree not to:</p>
+              <ul className={ulCls}>
+                <li>Use the Service in any way that violates any applicable law or regulation</li>
+                <li>Submit false, misleading, or fraudulent information</li>
+                <li>Attempt to gain unauthorized access to any portion of the Service, its servers, or any connected systems</li>
+                <li>Use any automated system, including bots, scrapers, or spiders, to access the Service without our written permission</li>
+                <li>Reverse engineer, decompile, disassemble, or attempt to derive source code from the Service</li>
+                <li>Abuse, manipulate, or exploit AI-assisted features for purposes unrelated to legitimate event operations</li>
+                <li>Use the Service to plan, promote, or facilitate unlawful activities</li>
+                <li>Introduce viruses, malware, or other harmful material to the Service</li>
+                <li>Interfere with or disrupt the integrity or performance of the Service</li>
+                <li>Resell, sublicense, or redistribute access to the Service without our written consent</li>
               </ul>
             </div>
 
             <div className={sectionCls}>
-              <h2 className={h2Cls}>4. Feedback Submissions</h2>
+              <h2 className={h2Cls}>5. User Content and Data</h2>
               <p className={pCls}>
-                When you submit feedback through our discovery portal, you grant Evenzs a non-exclusive, royalty-free, perpetual, and irrevocable right to use, reproduce, modify, and incorporate your feedback into our products, services, and research. This includes the right to use anonymized and aggregated versions of your feedback for product development, marketing, and research purposes.
+                You retain ownership of the content and data you create or upload to the Service, including event information, vendor details, tasks, and other operational data (&ldquo;User Content&rdquo;). By using the Service, you grant us a limited license to host, store, process, and display your User Content solely for the purpose of providing and improving the Service.
               </p>
               <p className={pCls}>
-                You retain ownership of your personal information (name, email, phone number) and can request its deletion at any time by contacting us. However, anonymized insights derived from your feedback may be retained.
-              </p>
-            </div>
-
-            <div className={sectionCls}>
-              <h2 className={h2Cls}>5. Intellectual Property</h2>
-              <p className={pCls}>
-                The Site and its entire contents, features, and functionality — including but not limited to all text, graphics, logos, icons, images, and software — are the property of Evenzs or its licensors and are protected by United States and international copyright, trademark, and other intellectual property laws.
-              </p>
-              <p className={pCls}>
-                The Evenzs name, logo, and all related names, logos, product and service names, designs, and slogans are trademarks of Evenzs. You may not use these marks without our prior written permission.
+                When you submit feedback, suggestions, or ideas through our research forms or support channels, you grant Evenzs a non-exclusive, royalty-free, perpetual right to use, incorporate, and build upon that feedback for product development purposes. Anonymized insights derived from feedback may be retained even if you delete your account.
               </p>
             </div>
 
             <div className={sectionCls}>
-              <h2 className={h2Cls}>6. Disclaimer of Warranties</h2>
+              <h2 className={h2Cls}>6. AI-Assisted Features</h2>
               <p className={pCls}>
-                THE SITE IS PROVIDED ON AN &ldquo;AS IS&rdquo; AND &ldquo;AS AVAILABLE&rdquo; BASIS, WITHOUT ANY WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. EVENZS DISCLAIMS ALL WARRANTIES, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
+                The Service may include AI-assisted features that provide planning suggestions, summaries, recommendations, or other generated content. You acknowledge and agree that:
               </p>
+              <ul className={ulCls}>
+                <li>AI-generated outputs may contain inaccuracies and should be independently reviewed before making operational or business decisions</li>
+                <li>You are solely responsible for verifying AI-generated content before relying on it</li>
+                <li>We do not guarantee the accuracy, completeness, or suitability of AI-generated outputs</li>
+                <li>AI features may change, be updated, or be discontinued at any time</li>
+              </ul>
+            </div>
+
+            <div className={sectionCls}>
+              <h2 className={h2Cls}>7. Operational Responsibility</h2>
               <p className={pCls}>
-                We do not warrant that the Site will be uninterrupted, timely, secure, or error-free, or that any defects will be corrected. We make no representations about the accuracy, reliability, or completeness of any content on the Site.
+                Evenzs Ops assists with event workflows, planning, and coordination, but you remain solely responsible for all operational decisions and event execution. The Service is a planning and coordination tool and does not replace professional judgment, legal advice, safety assessments, or compliance obligations specific to your events.
               </p>
             </div>
 
             <div className={sectionCls}>
-              <h2 className={h2Cls}>7. Limitation of Liability</h2>
+              <h2 className={h2Cls}>8. Intellectual Property</h2>
               <p className={pCls}>
-                TO THE FULLEST EXTENT PERMITTED BY LAW, IN NO EVENT SHALL EVENZS, ITS OFFICERS, DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING WITHOUT LIMITATION LOSS OF PROFITS, DATA, USE, OR GOODWILL, ARISING OUT OF OR IN CONNECTION WITH YOUR USE OF THE SITE.
+                The Service and its entire contents, features, and functionality — including but not limited to all software, text, graphics, logos, icons, images, workflows, and AI models — are the property of Evenzs or its licensors and are protected by United States and international intellectual property laws.
+              </p>
+              <p className={pCls}>
+                The Evenzs name, Evenzs Ops name, logos, and all related names, logos, product and service names, designs, and slogans are trademarks of Scube Innovations LLC. You may not use these marks without our prior written permission.
               </p>
             </div>
 
             <div className={sectionCls}>
-              <h2 className={h2Cls}>8. Indemnification</h2>
+              <h2 className={h2Cls}>9. Account Suspension and Termination</h2>
               <p className={pCls}>
-                You agree to indemnify and hold harmless Evenzs and its officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, and expenses (including reasonable attorneys&apos; fees) arising out of or in any way connected with your use of the Site or your violation of these Terms.
+                We reserve the right to suspend or terminate your account and access to the Service at our discretion, with or without notice, for conduct that we determine:
+              </p>
+              <ul className={ulCls}>
+                <li>Violates these Terms or applicable law</li>
+                <li>Is fraudulent, abusive, or harmful to other users</li>
+                <li>Involves misuse of the platform or its AI features</li>
+                <li>Poses a security risk to the Service or its users</li>
+              </ul>
+              <p className={pCls}>
+                You may terminate your account at any time through the application settings or by contacting{' '}
+                <a href="mailto:contact@evenzs.com" className="text-[#C9A84C] hover:underline">contact@evenzs.com</a>.
               </p>
             </div>
 
             <div className={sectionCls}>
-              <h2 className={h2Cls}>9. Third-Party Links</h2>
+              <h2 className={h2Cls}>10. Disclaimer of Warranties</h2>
               <p className={pCls}>
-                The Site may contain links to third-party websites or services that are not owned or controlled by Evenzs. We have no control over, and assume no responsibility for, the content, privacy policies, or practices of any third-party websites. Your use of third-party websites is at your own risk.
+                THE SERVICE IS PROVIDED ON AN &ldquo;AS IS&rdquo; AND &ldquo;AS AVAILABLE&rdquo; BASIS, WITHOUT ANY WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. EVENZS DISCLAIMS ALL WARRANTIES, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
+              </p>
+              <p className={pCls}>
+                We do not warrant that the Service will be uninterrupted, timely, secure, or error-free, or that any defects will be corrected. We make no representations about the accuracy, reliability, or completeness of any content or AI-generated outputs within the Service.
               </p>
             </div>
 
             <div className={sectionCls}>
-              <h2 className={h2Cls}>10. Governing Law</h2>
+              <h2 className={h2Cls}>11. Limitation of Liability</h2>
               <p className={pCls}>
-                These Terms shall be governed by and construed in accordance with the laws of the United States of America and the State in which Evenzs is incorporated, without regard to its conflict of law provisions. Any disputes arising under these Terms shall be resolved in the competent courts of that jurisdiction.
+                TO THE FULLEST EXTENT PERMITTED BY LAW, IN NO EVENT SHALL SCUBE INNOVATIONS LLC, ITS OFFICERS, DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING WITHOUT LIMITATION LOSS OF PROFITS, DATA, USE, OR GOODWILL, ARISING OUT OF OR IN CONNECTION WITH YOUR USE OF THE SERVICE.
+              </p>
+              <p className={pCls}>
+                OUR TOTAL AGGREGATE LIABILITY FOR ANY CLAIMS ARISING FROM OR RELATED TO THE SERVICE SHALL NOT EXCEED THE AMOUNT YOU PAID US, IF ANY, IN THE TWELVE (12) MONTHS PRECEDING THE CLAIM.
               </p>
             </div>
 
             <div className={sectionCls}>
-              <h2 className={h2Cls}>11. Changes to These Terms</h2>
+              <h2 className={h2Cls}>12. Indemnification</h2>
               <p className={pCls}>
-                We reserve the right to modify or replace these Terms at any time at our sole discretion. Material changes will be posted on this page with an updated effective date. Your continued use of the Site after any changes constitutes acceptance of the new Terms.
+                You agree to indemnify and hold harmless Scube Innovations LLC and its officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, and expenses (including reasonable attorneys&apos; fees) arising out of or in any way connected with your use of the Service, your User Content, or your violation of these Terms.
+              </p>
+            </div>
+
+            <div className={sectionCls}>
+              <h2 className={h2Cls}>13. Third-Party Services and Platforms</h2>
+              <p className={pCls}>
+                The Service may contain links to or integrations with third-party websites or services that are not owned or controlled by Evenzs. We have no control over, and assume no responsibility for, the content, privacy policies, or practices of any third-party services.
+              </p>
+              <p className={pCls}>
+                If you access the Service through a mobile application distributed via Apple App Store, Google Play, or any other platform, you acknowledge that: (a) these Terms are between you and Evenzs, not the platform provider; (b) the platform provider has no obligation to provide maintenance or support for the Service; and (c) you will comply with the applicable platform terms of service.
+              </p>
+            </div>
+
+            <div className={sectionCls}>
+              <h2 className={h2Cls}>14. Billing and Subscriptions</h2>
+              <p className={pCls}>
+                Certain features of the Service may require a paid subscription in the future. If paid plans are introduced, pricing, billing terms, and cancellation policies will be communicated to you prior to any charges. Subscription terms will be governed by the applicable subscription agreement presented at the time of purchase.
+              </p>
+            </div>
+
+            <div className={sectionCls}>
+              <h2 className={h2Cls}>15. Governing Law</h2>
+              <p className={pCls}>
+                These Terms shall be governed by and construed in accordance with the laws of the State of Texas, United States of America, without regard to its conflict of law provisions. Any disputes arising under these Terms shall be resolved in the state or federal courts located in Williamson County, Texas.
+              </p>
+            </div>
+
+            <div className={sectionCls}>
+              <h2 className={h2Cls}>16. Changes to These Terms</h2>
+              <p className={pCls}>
+                We reserve the right to modify or replace these Terms at any time at our sole discretion. Material changes will be posted on this page with an updated effective date. Your continued use of the Service after any changes constitutes acceptance of the new Terms. If you do not agree with the modified Terms, you should discontinue use of the Service.
               </p>
             </div>
 
             <div className="mb-0">
-              <h2 className={h2Cls}>12. Contact Us</h2>
+              <h2 className={h2Cls}>17. Contact Us</h2>
               <p className={pCls}>
-                If you have any questions about these Terms of Service, please contact us at{' '}
-                <a href="mailto:contact@evenzs.com" className="text-[#C9A84C] hover:underline">
-                  contact@evenzs.com
-                </a>.
+                If you have any questions about these Terms of Service, please contact us:
+              </p>
+              <p className={pCls}>
+                Scube Innovations LLC<br />
+                2425 Great Path<br />
+                Leander, Texas 78641<br />
+                USA
+              </p>
+              <p className={pCls}>
+                Email:{' '}
+                <a href="mailto:contact@evenzs.com" className="text-[#C9A84C] hover:underline">contact@evenzs.com</a>
               </p>
             </div>
           </div>
