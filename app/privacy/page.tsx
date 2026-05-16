@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { LogoWordmark } from '@/components/brand/LogoWordmark';
+import Image from 'next/image';
 
 export default function PrivacyPage() {
   const sectionCls = 'mb-10';
@@ -16,7 +16,14 @@ export default function PrivacyPage() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#070C1B]/80 backdrop-blur-2xl border-b border-white/[0.06]">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
           <Link href="/" className="flex items-center flex-shrink-0">
-            <LogoWordmark size="sm" dark showTagline={false} />
+            <Image
+              src="/Logo_(1).png"
+              alt="Evenzs"
+              width={200}
+              height={56}
+              className="h-11 w-auto object-contain"
+              priority
+            />
           </Link>
           <div className="flex items-center gap-6 sm:gap-8">
             <Link href="/privacy" className="text-[13px] text-white font-medium transition-colors duration-300">Privacy</Link>
