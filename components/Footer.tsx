@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import { LogoWordmark } from '@/components/brand/LogoWordmark';
 import Link from 'next/link';
 import { Mail, Linkedin } from 'lucide-react';
 
@@ -13,13 +13,7 @@ export default function Footer() {
           {/* Logo & tagline */}
           <div>
             <div className="mb-5">
-              <Image
-                src="/Logo_(1).png"
-                alt="Evenzs — From Toast To Takeoff"
-                width={180}
-                height={50}
-                className="h-11 w-auto object-contain"
-              />
+              <LogoWordmark size="sm" dark showTagline />
             </div>
             <p className="text-[#4A5568] text-xs leading-relaxed max-w-xs">
               Building the future of event execution.

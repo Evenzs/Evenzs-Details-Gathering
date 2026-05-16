@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
-import Image from 'next/image';
+import { LogoWordmark } from '@/components/brand/LogoWordmark';
 
 const navLinks = [
   { label: 'Why Evenzs', href: '#why-evenzs' },
@@ -50,14 +50,7 @@ export default function Navbar() {
               className="flex items-center flex-shrink-0"
               aria-label="Evenzs home"
             >
-              <Image
-                src="/Logo_(1).png"
-                alt="Evenzs — From Toast To Takeoff"
-                width={200}
-                height={56}
-                className="h-11 w-auto object-contain"
-                priority
-              />
+              <LogoWordmark size="sm" dark showTagline={false} />
             </button>
 
             <div className="hidden lg:flex items-center gap-10">
