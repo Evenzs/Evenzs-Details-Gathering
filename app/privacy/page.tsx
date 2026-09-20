@@ -53,11 +53,8 @@ export default function PrivacyPage() {
           <h1 className="text-[2rem] sm:text-[2.8rem] font-bold text-white leading-[1.08] tracking-[-0.03em] mb-4">
             Privacy Policy
           </h1>
-          <p className="text-[#64748B] text-sm mb-2">
-            Effective Date: September 19, 2026
-          </p>
           <p className="text-[#64748B] text-sm mb-12">
-            Supersedes: Privacy Policy dated May 6, 2026
+            Effective Date: September 19, 2026
           </p>
 
           <div className="card-dark rounded-3xl p-8 sm:p-10 border-glow-gold">
@@ -66,7 +63,7 @@ export default function PrivacyPage() {
             <div className={sectionCls}>
               <h2 className={h2Cls}>1. Introduction and Scope</h2>
               <p className={pCls}>
-                1.1. Scube Innovations LLC, a limited liability company doing business as Evenzs (&ldquo;<strong className={strongCls}>Evenzs</strong>,&rdquo; &ldquo;<strong className={strongCls}>we</strong>,&rdquo; &ldquo;<strong className={strongCls}>us</strong>,&rdquo; or &ldquo;<strong className={strongCls}>our</strong>,&rdquo;) provides the Evenzs Ops mobile application (the &ldquo;<strong className={strongCls}>App</strong>&rdquo;) and the website located at evenzs.com (the &ldquo;<strong className={strongCls}>Site</strong>,&rdquo; and together with the App and all related services, the &ldquo;<strong className={strongCls}>Services</strong>&rdquo;).
+                1.1. Scube Innovations LLC, a limited liability company doing business as Evenzs.com (&ldquo;<strong className={strongCls}>Evenzs</strong>,&rdquo; &ldquo;<strong className={strongCls}>we</strong>,&rdquo; &ldquo;<strong className={strongCls}>us</strong>,&rdquo; or &ldquo;<strong className={strongCls}>our</strong>,&rdquo;) provides the Evenzs Ops mobile application (the &ldquo;<strong className={strongCls}>App</strong>&rdquo;) and the website located at evenzs.com (the &ldquo;<strong className={strongCls}>Site</strong>,&rdquo; and together with the App and all related services, the &ldquo;<strong className={strongCls}>Services</strong>&rdquo;).
               </p>
               <p className={pCls}>
                 1.2. This Privacy Policy (the &ldquo;<strong className={strongCls}>Policy</strong>&rdquo;) describes the categories of Personal Information we Process in connection with the Services, the purposes and legal bases for such Processing, the categories of recipients to whom such Personal Information is Disclosed, the retention periods applied, and the rights available to Data Subjects and Consumers under applicable Privacy Laws.

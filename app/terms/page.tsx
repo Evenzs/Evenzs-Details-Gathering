@@ -55,7 +55,7 @@ export default function TermsPage() {
             <div className={sectionCls}>
               <h2 className={h2Cls}>1. Agreement to Terms</h2>
               <p className={pCls}>
-                By accessing or using the Evenzs Ops website, mobile applications, and related digital services (collectively, the &ldquo;Service&rdquo;), you agree to be bound by these Terms of Service (&ldquo;Terms&rdquo;). If you do not agree to these Terms, please do not use the Service. These Terms constitute a legally binding agreement between you and Scube Innovations LLC, doing business as Evenzs (&ldquo;Evenzs,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;).
+                By accessing or using the Evenzs Ops website, mobile applications, and related digital services (collectively, the &ldquo;Service&rdquo;), you agree to be bound by these Terms of Service (&ldquo;Terms&rdquo;). If you do not agree to these Terms, please do not use the Service. These Terms constitute a legally binding agreement between you and Scube Innovations LLC, doing business as Evenzs.com (&ldquo;Evenzs,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;).
               </p>
             </div>
 
