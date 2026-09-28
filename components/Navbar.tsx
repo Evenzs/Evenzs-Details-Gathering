@@ -73,12 +73,12 @@ export default function Navbar() {
             </div>
 
             <div className="hidden lg:flex items-center">
-              <button
-                onClick={() => handleNav('#feedback')}
+              <a
+                href="mailto:support@evenzs.com?subject=Evenzs%20Ops%20early%20access"
                 className="px-6 py-2.5 rounded-full text-[13px] font-semibold text-[#070C1B] bg-gradient-to-r from-[#C9A84C] to-[#D4AF37] hover:from-[#D4AF37] hover:to-[#E8C84A] transition-all duration-300 shadow-lg shadow-[#C9A84C]/20"
               >
-                Share Your Experience
-              </button>
+                Get in Touch
+              </a>
             </div>
 
             <button
@@ -111,12 +111,13 @@ export default function Navbar() {
               </button>
             ))}
             <div className="mt-2">
-              <button
-                onClick={() => handleNav('#feedback')}
-                className="w-full py-3 rounded-full text-sm font-semibold text-[#070C1B] bg-gradient-to-r from-[#C9A84C] to-[#D4AF37] transition-all duration-300"
+              <a
+                href="mailto:support@evenzs.com?subject=Evenzs%20Ops%20early%20access"
+                onClick={() => setMobileOpen(false)}
+                className="block text-center w-full py-3 rounded-full text-sm font-semibold text-[#070C1B] bg-gradient-to-r from-[#C9A84C] to-[#D4AF37] transition-all duration-300"
               >
-                Share Your Experience
-              </button>
+                Get in Touch
+              </a>
             </div>
           </motion.div>
         )}
