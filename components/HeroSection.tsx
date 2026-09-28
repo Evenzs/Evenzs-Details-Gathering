@@ -1,50 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles, Users } from 'lucide-react';
-import { supabase } from '@/lib/supabase';
+import { ArrowRight } from 'lucide-react';
 
 export default function HeroSection() {
-  const [email, setEmail] = useState('');
-  const [emailSubmitted, setEmailSubmitted] = useState(false);
-  const [emailSubmitting, setEmailSubmitting] = useState(false);
-  const [responseCount, setResponseCount] = useState<number | null>(null);
-
-  useEffect(() => {
-    supabase
-      .from('feedback_submissions')
-      .select('id', { count: 'exact', head: true })
-      .then(({ count }) => {
-        if (count !== null) setResponseCount(count);
-      });
-  }, []);
-
-  const handleWaitlist = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email) return;
-    setEmailSubmitting(true);
-    try {
-      await supabase.from('feedback_submissions').insert([{ email, event_type: 'Waitlist' }]);
-
-      const apiUrl = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/functions/v1/send-waitlist-confirmation`;
-      fetch(apiUrl, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email }),
-      }).catch(() => {});
-    } catch {
-      // fail silently
-    } finally {
-      setEmailSubmitting(false);
-      setEmailSubmitted(true);
-      if (responseCount !== null) setResponseCount(responseCount + 1);
-    }
-  };
-
   return (
     <section
       id="why-evenzs"
@@ -76,21 +35,6 @@ export default function HeroSection() {
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto">
-        {/* Social proof counter */}
-        {responseCount !== null && responseCount > 0 && (
-          <motion.div
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#C9A84C]/20 bg-[#C9A84C]/[0.05] backdrop-blur-sm mb-8"
-          >
-            <Users size={12} className="text-[#C9A84C]" strokeWidth={2} />
-            <span className="text-[#C9A84C] text-xs font-semibold">
-              {responseCount} event professionals have shared their experience
-            </span>
-          </motion.div>
-        )}
-
         <motion.h1
           initial={{ opacity: 0, y: 32 }}
           animate={{ opacity: 1, y: 0 }}
@@ -110,50 +54,23 @@ export default function HeroSection() {
           transition={{ duration: 0.7, delay: 0.25 }}
           className="text-[#CBD5E1] text-base sm:text-lg leading-[1.8] max-w-xl mx-auto mb-10"
         >
-          Help shape the tool that finally fixes event management — share your workflow
-          and get early access when we launch.
+          Evenzs Ops is in private beta with event professionals. Want early access or a
+          walkthrough? We&apos;d love to hear from you.
         </motion.p>
 
-        {/* Single primary CTA: Waitlist */}
+        {/* Primary CTA: contact */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.35 }}
         >
-          {emailSubmitted ? (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.96 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-[#C9A84C]/30 bg-[#C9A84C]/[0.06] backdrop-blur-sm text-[#C9A84C] text-sm font-medium"
-            >
-              <Sparkles size={14} strokeWidth={2} />
-              You&apos;re on the list — check your inbox.
-            </motion.div>
-          ) : (
-            <form
-              onSubmit={handleWaitlist}
-              className="flex flex-col sm:flex-row items-center gap-2.5 max-w-md mx-auto"
-            >
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="your@email.com"
-                required
-                className="w-full sm:flex-1 bg-white/[0.06] backdrop-blur-sm border border-white/[0.12] rounded-full px-5 py-3.5 text-white text-sm placeholder:text-[#64748B] focus:border-[#C9A84C]/40 focus:bg-white/[0.08] focus:outline-none transition-all duration-200"
-              />
-              <button
-                type="submit"
-                disabled={emailSubmitting}
-                className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-r from-[#C9A84C] to-[#D4AF37] hover:from-[#D4AF37] hover:to-[#E8C84A] disabled:opacity-50 text-[#070C1B] font-semibold text-sm tracking-wide transition-all duration-300 shadow-xl shadow-[#C9A84C]/20 hover:-translate-y-0.5 shrink-0"
-              >
-                {emailSubmitting ? 'Joining...' : 'Join Waitlist'}
-                {!emailSubmitting && (
-                  <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-200" strokeWidth={2.5} />
-                )}
-              </button>
-            </form>
-          )}
+          <a
+            href="mailto:support@evenzs.com?subject=Evenzs%20Ops%20early%20access"
+            className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-r from-[#C9A84C] to-[#D4AF37] hover:from-[#D4AF37] hover:to-[#E8C84A] text-[#070C1B] font-semibold text-sm tracking-wide transition-all duration-300 shadow-xl shadow-[#C9A84C]/20 hover:-translate-y-0.5"
+          >
+            Get in Touch
+            <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-200" strokeWidth={2.5} />
+          </a>
         </motion.div>
 
         <motion.p
@@ -162,7 +79,7 @@ export default function HeroSection() {
           transition={{ duration: 0.5, delay: 0.5 }}
           className="text-[#64748B] text-xs tracking-wide mt-4"
         >
-          Takes 2-3 minutes &middot; Your feedback shapes what we build
+          support@evenzs.com
         </motion.p>
       </div>
     </section>

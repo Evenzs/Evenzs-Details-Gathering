@@ -5,7 +5,6 @@ import ChallengesSection from '@/components/ChallengesSection';
 import ImageStrip from '@/components/ImageStrip';
 import UseCasesSection from '@/components/UseCasesSection';
 import TrustSection from '@/components/TrustSection';
-import FeedbackSection from '@/components/FeedbackSection';
 import CalBookingSection from '@/components/CalBookingSection';
 import Footer from '@/components/Footer';
 
@@ -19,7 +18,6 @@ export default function Home() {
       <ImageStrip />
       <UseCasesSection />
       <TrustSection />
-      <FeedbackSection />
       <CalBookingSection />
       <Footer />
     </main>
